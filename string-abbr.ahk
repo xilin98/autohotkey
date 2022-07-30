@@ -81,3 +81,6 @@ sendinput, returj{BackSpace}n
 return
 
 
+:?:c::
+sendinput, const
+return

@@ -1,12 +1,20 @@
 ﻿
 ;[#]
 
+#[::
+sendinput, #{left}
+return
+
+#]::
+sendinput, #{right}
+return
+
 #u::
-send, {f11}
+sendinput, {f11}
 return
 
 #z::
-send, #{4}
+sendinput, #{4}
 return
 
 #x::

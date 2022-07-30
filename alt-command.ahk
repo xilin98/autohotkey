@@ -27,3 +27,7 @@ return
 !s::
 sendinput, ^s
 return
+
+!m::
+sendinput, ^m
+return

@@ -63,7 +63,7 @@ run,https://www.bilibili.com/account/history?spm_id_from=333.788.0.0
 return
 
 :?:..::
-sendinput, ^c
+sendinput, ^c 
 sleep, 200
 run, cmd ,%clipboard%
 sleep, 200

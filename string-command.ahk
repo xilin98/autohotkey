@@ -1,58 +1,15 @@
 ﻿
 #Hotstring EndChars  `t
-:?:hh::
+
+:?:;[::
 sendinput, ^#{left}
 return
 
-:?:ll::
+
+:?:;]::
 sendinput, ^#{right}
 return
 
-
-:?:k1::
-sendinput ^{1}
-return
-
-:?:k2::
-sendinput ^{2}
-return
-
-:?:k3::
-sendinput ^{3}
-return
-
-:?:k4::
-sendinput ^{4}
-return
-
-:?:k5::
-sendinput ^{5}
-return
-
-:?:jj::
-sendinput !{left}
-return
-
-
-:?:kk::
-sendinput !{right}
-return
-
-:?:j1::
-sendinput #1
-return
-
-:?:j2::
-sendinput #2
-return
-
-:?:j3::
-sendinput #3
-return
-
-:?:j4::
-sendinput #4
-return
 
 :?:goo::
 run, https://www.google.com
@@ -85,19 +42,38 @@ return
 run,https://www.npmjs.com/
 return 
 
-:?:fn::
-sendinput function
+:?:;f::
+sendinput fuction
 return
 
-:?:;h::
+:?:;nt::
 run, https://www.notion.so/cd31967273e44bb588d59ac94f38014b
 return
-
+;
 :?:;auto::
 run, https://wyagd001.github.io/zh-cn/docs/Tutorial.htm
 return
 
-:?:;gi::
+:?:;git::
 run, https://github.com/infinitezxl
 return
 
+:?:v3::
+run, https://v3.cn.vuejs.org
+return
+
+:?:cxs::
+run, https://learn.cuixueshe.com/
+return
+
+:?:bd::
+run, www.baidu.com
+return
+
+:?:zhi::
+run, www.zhihu.com
+return
+
+::;lt::
+run, https://leetcode.cn/
+return

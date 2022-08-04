@@ -41,16 +41,10 @@ return
 sendinput, if(){{}{enter}
 return
 
-:?:;;fd::frondend
-return
-
 :?:**::
 sendinput, /* */{left}{left}
 return
 
-:?:;;ipt::
-sendinput,{#}important
-return
 
 :?:;;jq::
 sendinput,jQuery
@@ -60,17 +54,9 @@ return
 sendinput,javaScript
 return
 
-:?:;;cm::
-sendinput,<component></component>{left 12}
-return
-
 :?:;;co::
 sendinput,console.log(){left 1}
 return
-
-:?:;c::
-sendinput,{BackSpace 10}
-return 
 
 :*?:q'::
 sendinput,{right}{esc}bi'{esc}ea'
@@ -81,6 +67,10 @@ sendinput, returj{BackSpace}n
 return
 
 
-:?:c::
+:?:;c::
 sendinput, const
+return
+
+::;fn::
+sendinput, function
 return

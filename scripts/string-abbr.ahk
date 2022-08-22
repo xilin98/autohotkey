@@ -1,12 +1,14 @@
 ﻿#Hotstring EndChars  )
- 
 
+;html
 :?:---::
 sendinput, <hr>
 return
 
-:?:h1::
-sendInput {#}{space}
+
+
+;markdown
+:?:h1:: sendInput {#}{space}
 return
 
 :?:h2::
@@ -29,7 +31,12 @@ return
 sendinput {#}{#}{#}{#}{#}{#}{space}
 return
 
-:?:;f::
+
+
+
+
+;;js
+:?:;fi::
 sendinput, for(let{space}i{space}={space}0;i{space}<{space};{space}i{+}{+}){{}{enter}
 return
 
@@ -37,15 +44,42 @@ return
 sendinput, for(let{space}j{space}={space}0;j{space}<{space};{space}j{+}{+}){{}{enter}
 return
 
+:?:;fe::
+sendinput, for(let{space}item{space}of ){{} {enter}
+return
+
 :?:;i::
 sendinput, if(){{}{enter}
 return
 
-:?:**::
-sendinput, /* */{left}{left}
+:?*:;co::
+sendinput,console.log(){left 1}
+return
+
+:?:ret::
+sendinput, returj{BackSpace}n
+return
+
+::;fn::
+sendinput, function
 return
 
 
+:?:;c::
+sendinput, const
+return
+
+
+;ob 注释 js
+#IfWinActive ahk_exe obsidian.exe
+:?:**::
+sendinput, /* */{left}{left}
+return
+#if
+
+
+
+;;单词
 :?:;;jq::
 sendinput,jQuery
 return
@@ -54,23 +88,26 @@ return
 sendinput,javaScript
 return
 
-:?:;;co::
-sendinput,console.log(){left 1}
-return
 
+
+
+;; 引号 vim
 :*?:q'::
 sendinput,{right}{esc}bi'{esc}ea'
 return 
 
-:?:ret::
-sendinput, returj{BackSpace}n
+
+:?:ddd::
+FormatTime, CurrentDateTime,, yyyy/MM/dd
+SendInput %CurrentDateTime%
 return
 
 
-:?:;c::
-sendinput, const
-return
 
-::;fn::
-sendinput, function
+
+;; ob  
+#IfWinActive, ahk_exe obsidian.exe
+:?:;@::
+sendinput, {!}{[}{[}{^}{^}{]}{]}{left 2}
 return
+#if

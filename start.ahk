@@ -1,11 +1,10 @@
 #Hotstring EndChars  `t
 
-:?:;;st::
-run, %A_ScriptDir%/alt-command.ahk
-run, %A_ScriptDir%/app.ahk
-run, %A_ScriptDir%/string-abbr.ahk
-run, %A_ScriptDir%/string-command.ahk
-run, %A_ScriptDir%/win-command.ahk
-run, %A_ScriptDir%/esc-command.ahk
+:?*:rrr::
+Loop files, %A_ScriptDir%/scripts/*.ahk
+{
+    run, %A_LoopFileFullPath%
+    sleep, 100
+    sendInput, {enter}
+}
 return
-

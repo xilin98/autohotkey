@@ -1,5 +1,10 @@
-﻿;[alt]
+﻿;;;[alt]
 
+
+
+
+
+;;移动
 !h::
 sendInput, {left}
 return
@@ -16,10 +21,18 @@ return
 sendInput, {right}
 return
 
+
+
+
+
+; enter
 !space::
 sendinput, {enter}
 return
 
+
+
+;; 继承部分ctrl 功能
 !/::
 sendInput, ^/
 return

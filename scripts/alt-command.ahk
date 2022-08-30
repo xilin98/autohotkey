@@ -42,5 +42,13 @@ sendinput, ^s
 return
 
 !m::
-sendinput, ^m
+sendinput, ^+!m
 return
+
+
+
+
+
+
+
+

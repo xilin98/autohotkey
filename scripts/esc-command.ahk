@@ -1,4 +1,6 @@
 
+
+
 ; esc + t ==> 打开终端 
 #If WinActive("ahk_exe code.exe")
 ~esc & t::
@@ -11,6 +13,8 @@ return
 ~esc & t::
 sendinput, ^+i
 return
+
+
 #if 
 
 ~esc & t::
@@ -104,11 +108,6 @@ return
 
 
 
-; 撤销  重做
-~esc & e::
-sendinput, ^z
-return
-
 ~esc & r::
 sendinput, ^y
 return
@@ -152,10 +151,6 @@ return
 sendinput, !{f4}
 return
 
-; 关闭窗口
-~esc & z::
-sendinput, ^w
-return
 
 ;tab 
 ~esc & space::

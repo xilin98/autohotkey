@@ -24,11 +24,6 @@ sendInput, !{f4}
 return
 
 
-;;关闭窗口
-#q::
-sendinput, ^{w}
-return
-
 
 ;重命名
 #a::

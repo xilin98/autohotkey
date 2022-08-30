@@ -33,8 +33,6 @@ return
 
 
 
-
-
 ;;js
 :?:;fi::
 sendinput, for(let{space}i{space}={space}0;i{space}<{space};{space}i{+}{+}){{}{enter}

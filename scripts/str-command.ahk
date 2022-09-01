@@ -51,7 +51,7 @@ return
 
 
 ;; files文件夹
-:?:fii::
+:?:woo::
 run, cmd.exe , C:\Users\12624\Desktop\files
 sleep, 200
 WinGet, active_id, PID, A 

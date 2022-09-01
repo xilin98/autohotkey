@@ -10,7 +10,7 @@ global mode := "close"
 #if (mode = "close")
 
 ~esc & space::
-mode := "n-mode"
+mode := "z-mode"
 Gosub, showMode
 return
 

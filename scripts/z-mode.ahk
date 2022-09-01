@@ -1,10 +1,6 @@
 ﻿
 #if (mode="z-mode")
 
-~esc::
-mode:="n-mode"
-Gosub, showMode
-return
 
 
 i::
@@ -77,14 +73,12 @@ If (WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")){
 return 
 
 
-;quicker bar
-n::
-SendInput, !n
-return 
-
-
 p::
 sendinput, !p
+return
+
++p::
+SendInput, !{f4}
 return
 
 o::
@@ -92,6 +86,4 @@ sendinput, !o
 return
 
 #if
-
-
 

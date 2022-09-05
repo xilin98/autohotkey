@@ -39,6 +39,8 @@ return
  #include %A_ScriptDir%\scripts\str-abbr.ahk
  #include %A_ScriptDir%\scripts\tab-command.ahk
  #include %A_ScriptDir%\scripts\win-command.ahk
+ #include %A_ScriptDir%\scripts\space-command.ahk
+ #include %A_ScriptDir%\scripts\lbutton-command.ahk
 
  #include %A_ScriptDir%\scripts\v-mode.ahk
  #include %A_ScriptDir%\scripts\n-mode.ahk

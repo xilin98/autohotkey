@@ -133,13 +133,13 @@ sleep,100
 sendinput,^i
 return 
 
-;代码提示
-~esc & s::
+;代码提示 (metion)
+~esc & m::
 sendinput, ^i
 return
 
-;跳转到
-~esc & d::
+;跳转到 (in to the definetion)
+~esc & i::
 sendinput, {f12}
 return
 

@@ -19,7 +19,7 @@ return
 sendInput, #3
 return
 
-~LButton & 1::
+~LButton & 4::
 sendInput, #4
 return
 
@@ -41,5 +41,10 @@ sendInput, ^v
 return
 
 ~LButton & x::
-sendInput, ^w
+sendInput, {Delete}
+return   
+
+;切换窗口
+~Lbutton & RButton::
+SendInput, ^+!s
 return

@@ -1,7 +1,4 @@
-﻿
-#if (mode="z-mode")
-
-
+﻿#if (mode="z-mode")
 
 i::
 mode:="close"
@@ -85,5 +82,20 @@ o::
 sendinput, !o
 return
 
-#if
+h::
+sendinput, {left 5}
+return
 
+j::
+sendinput, {down 5}
+return
+
+k::
+sendinput, {up 5}
+return
+
+l::
+sendinput, {right 5}
+return
+
+#if

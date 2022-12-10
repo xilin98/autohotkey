@@ -29,4 +29,3 @@ return
 #a::
 sendInput, {f2}
 return
-

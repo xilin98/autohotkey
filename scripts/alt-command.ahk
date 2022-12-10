@@ -1,5 +1,14 @@
 ﻿;;;[alt]
 
+#If WinActive("ahk_exe chrome.exe")
+!p::
+sendinput, ^+p
+return
+
+!o::
+sendinput, ^p
+return
+#if 
 
 
 
@@ -48,5 +57,27 @@ return
 
 
 
+;桌面
+![::
+sendInput, #^{left}
+return 
 
+!]::
+sendInput, #^{right}
+return
+
+!\::
+sendinput, ^#d
+return
+
+
+!BackSpace::
+sendInput, ^#{f4}
+return
+
+
+; ~alt::
+;     If (A_ThisHotkey = A_PriorHotkey and A_TimeSincePriorHotkey < 200)
+;         SendInput,{f7}
+; Return
 

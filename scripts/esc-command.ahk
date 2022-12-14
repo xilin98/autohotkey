@@ -1,8 +1,3 @@
-;解决粘滞问题
-#If GetKeyState("Esc", "P")
-
-
-
 esc & space::
 SendInput,  {esc}
 return
@@ -108,11 +103,6 @@ esc & b::
 sendinput, ^w
 return
 
-; panel
-#IfWinActive, ahk_exe code.exe
-
-
-#if
 
 #If WinActive("ahk_exe obsidian.exe") or WinActive("ahk_exe code.exe")
 
@@ -256,12 +246,9 @@ sendinput, {esc}
 return
 
 esc & WheelUp::
-SendInput, {left}
+SendInput, {left, 5}
 return
 
 esc & WheelDown::
-SendInput, {right}
+SendInput, {right, 5}
 return
-
-
-#If

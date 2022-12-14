@@ -1,35 +1,33 @@
 #Hotstring EndChars  `t
 #SingleInstance Force
 #NoEnv
-#MaxHotkeysPerInterval 200
+#MaxHotkeysPerInterval 1000 
 
-Menu, Tray, Icon, %A_ScriptDir%\start.ico
+; Always run your script as admin
+if not A_IsAdmin
+{
+   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   ExitApp
+}
 
-global mode := "close"
 
-#if (mode = "close")
 
-~esc & space::
-mode := "z-mode"
-Gosub, showMode
-return
+; 解决粘滞问题
+SetKeyDelay, 30 
+SetMouseDelay, 30 
+SetWinDelay, 30
 
-!z::
-mode := "z-mode"
-Gosub, showMode
-return
+; 图标
+Menu, Tray, Icon, %A_ScriptDir%\scripts\start.ico
 
-#if
+; global mode := "close"
 
-showMode:
-    tooltip, % mode, 0, 2100 
-    sleep, 2000
-    tooltip, , 1000, 1500 
-return
-
-~esc::
-Gosub, showMode
-return
+; ; 显示 mode
+; showMode:
+;     tooltip, % mode, 0, 2100 
+;     sleep, 2000
+;     tooltip, , 1000, 1500 
+; return
 
 
 
@@ -37,13 +35,19 @@ return
  #include %A_ScriptDir%\scripts\esc-command.ahk
  #include %A_ScriptDir%\scripts\str-command.ahk
  #include %A_ScriptDir%\scripts\str-abbr.ahk
- #include %A_ScriptDir%\scripts\tab-command.ahk
+ #include %A_ScriptDir%\scripts\ctrl-command.ahk
+;  #include %A_ScriptDir%\scripts\tab-command.ahk
  #include %A_ScriptDir%\scripts\win-command.ahk
- #include %A_ScriptDir%\scripts\space-command.ahk
- #include %A_ScriptDir%\scripts\lbutton-command.ahk
+ #include %A_ScriptDir%\scripts\button-command.ahk
+;  #include %A_ScriptDir%\scripts\app.ahk
 
- #include %A_ScriptDir%\scripts\v-mode.ahk
- #include %A_ScriptDir%\scripts\n-mode.ahk
- #include %A_ScriptDir%\scripts\z-mode.ahk
- #include %A_ScriptDir%\scripts\v-mode-cap.ahk
- 
+;  #include %A_ScriptDir%\scripts\v-mode.ahk
+;  #include %A_ScriptDir%\scripts\n-mode.ahk
+;  #include %A_ScriptDir%\scripts\z-mode.ahk
+;  #include %A_ScriptDir%\scripts\v-mode-cap.ahk
+ #include %A_ScriptDir%\scripts\double.ahk
+
+
+
+
+#if

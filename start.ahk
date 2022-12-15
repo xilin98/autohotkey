@@ -1,7 +1,8 @@
-#Hotstring EndChars  `t
+#Hotstring EndChars  )
 #SingleInstance Force
 #NoEnv
 #MaxHotkeysPerInterval 1000 
+SetWorkingDir, %A_ScriptDir%
 
 ; Always run your script as admin
 if not A_IsAdmin
@@ -11,14 +12,10 @@ if not A_IsAdmin
 }
 
 
-
-; 解决粘滞问题
-SetKeyDelay, 30 
-SetMouseDelay, 30 
-SetWinDelay, 30
-
 ; 图标
 Menu, Tray, Icon, %A_ScriptDir%\scripts\start.ico
+
+
 
 ; global mode := "close"
 
@@ -38,16 +35,10 @@ Menu, Tray, Icon, %A_ScriptDir%\scripts\start.ico
  #include %A_ScriptDir%\scripts\ctrl-command.ahk
 ;  #include %A_ScriptDir%\scripts\tab-command.ahk
  #include %A_ScriptDir%\scripts\win-command.ahk
- #include %A_ScriptDir%\scripts\button-command.ahk
-;  #include %A_ScriptDir%\scripts\app.ahk
+ #include %A_ScriptDir%\scripts\app.ahk
 
 ;  #include %A_ScriptDir%\scripts\v-mode.ahk
 ;  #include %A_ScriptDir%\scripts\n-mode.ahk
 ;  #include %A_ScriptDir%\scripts\z-mode.ahk
 ;  #include %A_ScriptDir%\scripts\v-mode-cap.ahk
  #include %A_ScriptDir%\scripts\double.ahk
-
-
-
-
-#if

@@ -1,5 +1,6 @@
 ﻿;;;[alt]
 
+; 在开发者工具中调出切换面板和控制面板
 #If WinActive("ahk_exe chrome.exe")
 !p::
 sendinput, ^+p
@@ -9,7 +10,6 @@ return
 sendinput, ^p
 return
 #if 
-
 
 
 
@@ -29,9 +29,6 @@ return
 !l::
 sendInput, {right}
 return
-
-
-
 
 
 ; enter
@@ -55,9 +52,7 @@ sendinput, ^m
 return
 
 
-
-
-;桌面
+; 桌面
 ![::
 sendInput, #^{left}
 return 
@@ -70,14 +65,6 @@ return
 sendinput, ^#d
 return
 
-
 !BackSpace::
 sendInput, ^#{f4}
 return
-
-
-; ~alt::
-;     If (A_ThisHotkey = A_PriorHotkey and A_TimeSincePriorHotkey < 200)
-;         SendInput,{f7}
-; Return
-

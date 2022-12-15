@@ -1,10 +1,8 @@
-﻿#Hotstring EndChars  )
-
+﻿
 ;html
 :?:---::
 sendinput, <hr>
 return
-
 
 
 ;markdown
@@ -33,23 +31,6 @@ sendinput {#}{#}{#}{#}{#}{#}{space}
 return
 
 
-; ;;js
-; :?:;fi::
-; sendinput, for(let{space}i{space}={space}0;i{space}<{space};{space}i{+}{+}){{}{enter}
-; return
-
-; :?:;fj::
-; sendinput, for(let{space}j{space}={space}0;j{space}<{space};{space}j{+}{+}){{}{enter}
-; return
-
-; :?:;fe::
-; sendinput, for(let{space}item{space}of ){{} {enter}
-; return
-
-; :?:;i::
-; sendinput, if(){{}{enter}
-; return
-
 :?*:;co::
 sendinput,console.log(){left 1}
 return
@@ -57,11 +38,6 @@ return
 :?:ret::
 sendinput, returj{BackSpace}n
 return
-
-:?:;fn::
-sendinput, function
-return
-
 
 :?:;c::
 sendinput, const
@@ -74,18 +50,6 @@ return
 sendinput, /* */{left}{left}
 return
 #if
-
-
-
-; ;;单词
-; :?:;;jq::
-; sendinput,jQuery
-; return
-
-; :?:;;js::
-; sendinput,javaScript
-; return
-
 
 
 
@@ -147,4 +111,3 @@ Return
 :?:;gd::
 SendInput, git add 
 Return
-

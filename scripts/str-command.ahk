@@ -1,5 +1,4 @@
-﻿#Hotstring EndChars  )
-
+﻿
 ;; 网址
 :?:goo::
 run, https://www.google.com

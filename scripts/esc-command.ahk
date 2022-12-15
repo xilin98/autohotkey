@@ -1,3 +1,9 @@
+;解决按键粘滞问题
+esc Up::
+sendinput, {Esc}
+return
+
+
 esc & space::
 SendInput,  {esc}
 return

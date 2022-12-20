@@ -31,6 +31,11 @@ sendinput {#}{#}{#}{#}{#}{#}{space}
 return
 
 
+;; 中文 引号
+:?:;':: 
+sendinput, `「」` 
+return 
+
 :?*:;co::
 sendinput,console.log(){left 1}
 return

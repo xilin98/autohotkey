@@ -4,6 +4,9 @@
 run, https://www.google.com
 return
 
+:?:too::
+run, https://www.notion.so/Todo-31102ef57855442f98d8cdc898157960
+return
 
 :?:gpp::
 run, https://chat.openai.com/chat
@@ -12,6 +15,7 @@ return
 :?:bii::
 run,https://www.bilibili.com/account/history?spm_id_from=333.788.0.0
 return
+
 
 :?:npp::
 run,https://www.npmjs.com/
@@ -53,21 +57,12 @@ return
 run, https://lodash.com/docs/4.17.15 
 return
 
-;; files文件夹
-; :?:woo::
-; run, cmd.exe , C:\Users\12624\Desktop\files
-; sleep, 200
-; WinGet, active_id, PID, A 
-; sendinput, code {space}.{enter}
-; run, taskkill /PID %active_id% /F,,Hide
-; return
-
-
 
 ;; 窗口
 :?:;;x::
 sendinput, !{f4}
 return
+
 
 ;; ob  
 #IfWinActive, ahk_exe obsidian.exe
@@ -89,7 +84,6 @@ return
 
 
 ; Rename
-
 :?:;a::
 sendinput {f2}
 return
@@ -100,26 +94,6 @@ SendInput,  gg
 SendInput, ^+.
 return 
 
-; ; 切换标签页
-; :?:11::
-; SendInput, ^1
-; return
-
-; :?:22::
-; SendInput, ^2
-; return
-
-; :?:33::
-; SendInput, ^3
-; return
-
-; :?:44::
-; SendInput, ^4
-; return
-
-; :?:55::
-; SendInput, ^5
-; return
 
 ; 刷新
 #If WinActive("ahk_exe chrome.exe") 
@@ -141,3 +115,8 @@ SendInput, {esc}
 return
 
 
+; restart
+:?:ree:: 
+Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+ExitApp
+return

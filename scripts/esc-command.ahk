@@ -1,7 +1,28 @@
 ;解决按键粘滞问题
 esc Up::
-sendinput, {Esc}
 return
+
+;; 解决按键粘滞问题 
+SetTimer, timer1, 100		;用来实时监测 
+ 
+return 
+ 
+timer1:			;每隔1秒检查一下电脑上的这些个窗口是否存在，存在的话，就将其关闭 
+	; MsgBox,Ctrl键目前处于假按状态 
+ 
+	state_Alt := GetKeyState("Esc")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
+	state_Alt_P := GetKeyState("Esc", "P") 
+ 
+if((state_alt = 1)  and (state_alt_P = 0))	;假如Alt功能显示按下，但实际物理状态并没有按下的话，就将Alt键抬起来 
+{ 
+	Sleep,100 
+	state_Alt := GetKeyState("Esc")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
+	state_Alt_P := GetKeyState("Esc", "P") 
+	if((state_alt = 1)  and (state_alt_P = 0) and (state_CapsLock_P = 0)) 
+	{ 
+    sendinput, {Esc Up}
+	} 
+} 
 
 
 esc & space::
@@ -258,3 +279,5 @@ return
 esc & WheelDown::
 SendInput, {right, 5}
 return
+
+

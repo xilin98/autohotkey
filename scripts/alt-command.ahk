@@ -1,5 +1,4 @@
-﻿;;;[alt]
-
+﻿
 ; 在开发者工具中调出切换面板和控制面板
 #If WinActive("ahk_exe chrome.exe")
 !p::
@@ -31,7 +30,7 @@ sendInput, {right}
 return
 
 
-; enter
+;;  enter
 !space::
 sendinput, {enter}
 return
@@ -52,19 +51,24 @@ sendinput, ^m
 return
 
 
-; 桌面
+;; 桌面
+
+;左边桌面
 ![::
 sendInput, #^{left}
 return 
 
+;右边桌面
 !]::
 sendInput, #^{right}
 return
 
+;新建
 !\::
 sendinput, ^#d
 return
 
+;关闭
 !BackSpace::
-sendInput, ^#{f4}
+sendInput, ^#{f4}--
 return

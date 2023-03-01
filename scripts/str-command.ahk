@@ -116,7 +116,8 @@ return
 
 
 ; restart
-:?:ree:: 
+:?:;re:: 
 Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
 ExitApp
 return
+

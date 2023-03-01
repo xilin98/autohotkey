@@ -1,35 +1,20 @@
-;解决按键粘滞问题
-esc Up::
+;;解决按键粘滞问题
+; Set up the timer
+SetTimer, ClearStickyKeys, 50
+
+
+; This is the timer function that clears the sticky keys
+ClearStickyKeys:
+    SetKeyDelay, -1
+    SetKeyDelay, 0
 return
 
-;; 解决按键粘滞问题 
-SetTimer, timer1, 100		;用来实时监测 
- 
-return 
- 
-timer1:			;每隔1秒检查一下电脑上的这些个窗口是否存在，存在的话，就将其关闭 
-	; MsgBox,Ctrl键目前处于假按状态 
- 
-	state_Alt := GetKeyState("Esc")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
-	state_Alt_P := GetKeyState("Esc", "P") 
- 
-if((state_alt = 1)  and (state_alt_P = 0))	;假如Alt功能显示按下，但实际物理状态并没有按下的话，就将Alt键抬起来 
-{ 
-	Sleep,100 
-	state_Alt := GetKeyState("Esc")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
-	state_Alt_P := GetKeyState("Esc", "P") 
-	if((state_alt = 1)  and (state_alt_P = 0) and (state_CapsLock_P = 0)) 
-	{ 
-    sendinput, {Esc Up}
-	} 
-} 
 
-
-esc & space::
+esc & space::  
 SendInput,  {esc}
 return
 
-; esc + t ==> 打开终端 
+;; 打开终端 
 #If WinActive("ahk_exe code.exe")
 esc & t::
 SendInput, ^+t
@@ -46,7 +31,7 @@ sendinput, #3
 return
 
 
-;移动
+;; 移动
 esc & j::
 sendinput {down 5}
 return
@@ -63,7 +48,7 @@ esc & h::
 sendinput {left 20}
 return
 
-;应用切换
+;; 应用切换
 esc & 1::
 sendinput, #1
 return
@@ -86,7 +71,7 @@ return
 
 
 
-;打开, 关闭侧边栏 ob
+;; 打开, 关闭侧边栏 
 #if WinActive("ahk_exe obsidian.exe")
 
 esc & 9::
@@ -99,7 +84,7 @@ return
 
 #if
 
-; 打开 、 关闭侧边栏 vscode
+
 #if WinActive("ahk_exe code.exe")
 
 esc & 9::
@@ -110,14 +95,17 @@ return
 
 
 
-;页面切换
+;; 页面路由
 esc & q::
+esc & LButton::
 sendinput, !{left} 
 return
 
 esc & w::
+esc & RButton::
 sendinput, !{right} 
 return
+
 
 ; 回到桌面
 esc & d::
@@ -279,5 +267,3 @@ return
 esc & WheelDown::
 SendInput, {right, 5}
 return
-
-

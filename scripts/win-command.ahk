@@ -1,31 +1,13 @@
-﻿
-;[#]
-
-;;分屏
+﻿;;分屏
 #[::
-sendinput, #{left}
+  sendinput, #{left}
 return
 
 #]::
-sendinput, #{right}
+  sendinput, #{right}
 return
-
-
-
-;vscode
-#z::
-sendinput, #{4}
-return
-
 
 ;;关闭应用
 #x::
-sendInput, !{f4}
-return
-
-
-
-;重命名
-#a::
-sendInput, {f2}
+  sendInput, !{f4}
 return

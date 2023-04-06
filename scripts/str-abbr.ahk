@@ -35,6 +35,7 @@ return
 return 
 
 ;; js keyword 缩写
+
 ; console.log
 :?*:;co::
   sendinput,console.log(){left 1}
@@ -45,10 +46,11 @@ return
   sendinput, returj{BackSpace}n
 return
 
-;const
+; const
 :?:;c::
   sendinput, const
 return
+
 ; js 代码块
 :?:;j::
   sendinput, ``

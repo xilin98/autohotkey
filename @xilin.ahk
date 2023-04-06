@@ -1,5 +1,5 @@
 
-#Hotstring EndChars )
+#Hotstring EndChars ) )
 #SingleInstance Force
 #MaxHotkeysPerInterval 200
 #InstallKeybdHook

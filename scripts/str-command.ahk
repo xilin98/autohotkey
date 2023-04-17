@@ -24,13 +24,18 @@ return
 return
 
 :?:baa::
-  run, www.baidu.com
+  run, https://www.baidu.com
 return
 
 :?:zhh::
-  run, www.zhihu.com
+  run, https://www.zhihu.com
 return
 
 :?:lee::
   run, https://leetcode.cn/
+return
+
+;; 跳到代码块
+:?:;@::
+  SendInput, ^+o
 return

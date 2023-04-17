@@ -1,193 +1,170 @@
-;;解决按键粘滞问题
-; Set up the timer
-SetTimer, ClearStickyKeys, 50
+esc::
+Return
 
-
-; This is the timer function that clears the sticky keys
-ClearStickyKeys:
-    SetKeyDelay, -1
-    SetKeyDelay, 0
-return
-
-
-esc & space::  
-SendInput,  {esc}
+esc & space:: 
+  SendInput, {esc}
 return
 
 ;; 打开终端 
 #If WinActive("ahk_exe code.exe")
 esc & t::
-SendInput, ^+t
+^+!t::
+  SendInput, ^+t
+return
 #if
-                 
+
 #If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
+^+!t::
 esc & t::
-sendinput, ^+i
+  sendinput, ^+i
 return
 #if 
 
+^+!t::
 esc & t::
-sendinput, #3
+  sendinput, #3
 return
-
 
 ;; 移动
 esc & j::
-sendinput {down 5}
+  sendinput {down 5}
 return
 
 esc & k::
-sendinput {up 5}
+  sendinput {up 5}
 return 
 
 esc & l::
-sendinput {right 20} 
+  sendinput {right 20} 
 return
 
 esc & h::
-sendinput {left 20}
+  sendinput {left 20}
 return
 
 ;; 应用切换
 esc & 1::
-sendinput, #1
+  sendinput, #1
 return
 
 esc & 2::
-sendinput, #2
+  sendinput, #2
 return
 
 esc & 3::
-sendinput, #3
+  sendinput, #3
 return
 
 esc & 4::
-sendinput, #4
+  sendinput, #4
 return
 
 esc & 5::
-sendinput, #5
+  sendinput, #5
 return
-
-
 
 ;; 打开, 关闭侧边栏 
 #if WinActive("ahk_exe obsidian.exe")
 
 esc & 9::
-sendinput, ^+!0
+  sendinput, ^+!0
 return
 
 esc & 0::
-sendinput, ^+!9
+  sendinput, ^+!9
 return
 
 #if
-
 
 #if WinActive("ahk_exe code.exe")
 
 esc & 9::
-sendinput, ^b
+  sendinput, ^b
 return
 
 #if
-
-
 
 ;; 页面路由
 esc & q::
 esc & LButton::
-sendinput, !{left} 
+  sendinput, !{left} 
 return
 
 esc & w::
 esc & RButton::
-sendinput, !{right} 
+  sendinput, !{right} 
 return
 
-
-; 回到桌面
+;; 回到桌面
 esc & d::
-sendinput, #d
+  sendinput, #d
 return
 
-
-; 关闭页面
+;; 关闭页面
 esc & b::
-sendinput, ^w
+  sendinput, ^w
 return
 
-
+;; 分栏
 #If WinActive("ahk_exe obsidian.exe") or WinActive("ahk_exe code.exe")
 
 esc & [::
-sendinput, ^+!j
+  sendinput, ^+!j
 return
 
 esc & ]::
-sendinput, ^+!k
+  sendinput, ^+!k
 return
 
 esc & \::
-sendinput, ^\
+  sendinput, ^\
 return
 
-#if
-
-
-
-
 esc & r::
-sendinput, ^y
+  sendinput, ^y
 return
 
 esc & e::
-sendinput, ^z
+  sendinput, ^z
 return
-
-
 
 ;vscode 打开脚本文件夹
 esc & /::
-run,cmd,C:\Users\12624\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-sleep, 200
-WinGet, active_id, PID, A 
-sendInput, code{space}.{enter}
-run, taskkill /PID %active_id% /F,,Hide
+  run,cmd,C:\Users\12624\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+  sleep, 200
+  WinGet, active_id, PID, A 
+  sendInput, code{space}.{enter}
+  run, taskkill /PID %active_id% /F,,Hide
 return
-
 
 ;;vscode 
 #IfWinActive, ahk_exe code.exe
-;hover提示
+  ;hover提示
 esc & a::
-sendinput,^k 
-sleep,100
-sendinput,^i
+  sendinput,^k 
+  sleep,100
+  sendinput,^i
 return 
-
-
 
 ;代码提示 (metion)
 esc & m::
-sendinput, ^i
+  sendinput, ^i
 return
 
 ;跳转到 (in to the definetion)
 esc & i::
-sendinput, {f12}
+  sendinput, {f12}
 return
 
 ; figure out the north
 esc & n::
-sendinput, ^+!z
+  sendinput, ^+!z
 return
 #if
 
 ;搜索
 esc & f::
-sendinput, ^f
+  sendinput, ^f
 return
 
 #If WinActive("ahk_exe chrome.exe") 
@@ -196,36 +173,33 @@ sendinput, ^k
 return
 #if 
 
-
 esc & g::
-sendinput, ^+f
+  sendinput, ^+f
 return
-
 
 ;关闭应用
 esc & Delete::
-SendInput, !{f4}
+  SendInput, !{f4}
 return 
 
-
 esc & y::
-sendinput, ^c
+  sendinput, ^c
 Return
 
 esc & p::
-sendinput, ^v
+  sendinput, ^v
 return
 
 ; ob 代码块格式化
 #IfWinActive ahk_exe obsidian.exe
 
 esc & n::
-sendinput, !+s
+  sendinput, !+s
 return
 
 ; 模式转换
 esc & m::
-sendinput, ^{tab}
+  sendinput, ^{tab}
 return
 #if 
 
@@ -236,34 +210,26 @@ return
 #if
 
 esc & .::
-SendInput, ^+.
+  SendInput, ^+.
 return
 
 esc & u::
-SendInput, {f11}
+  SendInput, {f11}
 return
 
 esc & ,::
-SendInput, {f2}
+  SendInput, {f2}
 return
 
 ; 上下文菜单
 esc & '::
-sendinput, {AppsKey down}
-return
-
-esc & enter::
-sendinput, ^w
-return
-
-esc & o::
-sendinput, {esc}
+  sendinput, {AppsKey down}
 return
 
 esc & WheelUp::
-SendInput, {left, 5}
+  SendInput, {up 20}
 return
 
 esc & WheelDown::
-SendInput, {right, 5}
+  SendInput, {down 20}
 return

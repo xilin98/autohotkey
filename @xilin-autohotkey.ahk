@@ -1,3 +1,4 @@
+;;---全局
 #Hotstring EndChars ) )
 #SingleInstance Force
 #MaxHotkeysPerInterval 200

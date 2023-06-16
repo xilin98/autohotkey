@@ -23,6 +23,7 @@ if not A_IsAdmin
 #include %A_ScriptDir%\scripts\win-command.ahk
 #include %A_ScriptDir%\scripts\esc-command.ahk
 #include %A_ScriptDir%\scripts\app.ahk
+#include %A_ScriptDir%\ContextWheel.ahk
 
 ;; 清除键盘状态
 $~*Esc::

@@ -6,7 +6,7 @@
     sleep, 2000
     sendinput, {enter}
   return
-  #if
+#if
 
   ; ;; 双击右键 --> quiker 面板
 

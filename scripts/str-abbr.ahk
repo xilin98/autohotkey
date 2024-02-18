@@ -94,7 +94,6 @@ return
 sendinput,{right}{esc}bi'{esc}ea'
 return 
 
-
 :?:ddd::
 FormatTime, CurrentDateTime,, yyyy/MM/dd
 SendInput %CurrentDateTime%

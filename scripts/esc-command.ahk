@@ -227,9 +227,9 @@ esc & '::
 return
 
 esc & WheelUp::
-  SendInput, {up 20}
+  SendInput, {ShiftAltTab}
 return
 
 esc & WheelDown::
-  SendInput, {down 20}
+  SendInput, {AltTab}
 return

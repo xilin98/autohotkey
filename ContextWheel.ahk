@@ -31,6 +31,10 @@ WheelDown::         _WheelAction(false)
 ; ># 这个设计就非常的 nice
 LWin & WheelUp::    ShiftAltTab
 LWin & WheelDown::  AltTab
+
+; Esc & WheelUp::    ShiftAltTab
+; Esc & WheelDown::  AltTab
+
 ^+WheelUp::         _ReSizeWin(true)
 ^+WheelDown::       _ReSizeWin(false)
 ;========================= 环境配置 =========================

@@ -21,21 +21,46 @@ return
 timer1:		
 	; MsgBox,Ctrl键目前处于假按状态 
  
-	state_Alt := GetKeyState("Esc")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
-	state_Alt_P := GetKeyState("Esc", "P") 
+	state_Alt := GetKeyState("Alt")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
+	state_Alt_P := GetKeyState("Alt", "P") 
  
 if((state_alt = 1)  and (state_alt_P = 0))	;假如Alt功能显示按下，但实际物理状态并没有按下的话，就将Alt键抬起来 
 { 
 	Sleep,100 
-	state_Alt := GetKeyState("Esc")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
-	state_Alt_P := GetKeyState("Esc", "P") 
+	state_Alt := GetKeyState("Alt")	;获取Alt键的功能状态，用户或者程序按下为1，否则为0 
+	state_Alt_P := GetKeyState("Alt", "P") 
 	if((state_alt = 1)  and (state_alt_P = 0) and (state_CapsLock_P = 0)) 
+	{ 
+		send,{Alt} 
+	} 
+} 
+ 
+return
+
+SetTimer, timer2, 100		;用来实时监测 
+ 
+return 
+ 
+timer2:		
+	; MsgBox,Ctrl键目前处于假按状态 
+ 
+	state_Esc := GetKeyState("Esc")	;获取Esc键的功能状态，用户或者程序按下为1，否则为0 
+	state_Esc_P := GetKeyState("Esc", "P") 
+ 
+if((state_Esc = 1)  and (state_Esc_P = 0))	;假如Esc功能显示按下，但实际物理状态并没有按下的话，就将Esc键抬起来 
+{ 
+	Sleep,100 
+	state_Esc := GetKeyState("Esc")	;获取Esc键的功能状态，用户或者程序按下为1，否则为0 
+	state_Esc_P := GetKeyState("Esc", "P") 
+	if((state_Esc = 1)  and (state_Esc_P = 0) and (state_CapsLock_P = 0)) 
 	{ 
 		send,{Esc} 
 	} 
 } 
  
 return
+
+
 ;;Menu, Tray, Icon, %A_ScriptDir%\scripts\icon.ico
 
 ;; 引入各个模块

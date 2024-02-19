@@ -1,13 +1,13 @@
 ﻿;;分屏
 #[::
-  sendinput, #{left}
+  send, #{left}
 return
 
 #]::
-  sendinput, #{right}
+  send, #{right}
 return
 
 ;;关闭应用
 #x::
-  sendInput, !{f4}
+  send, !{f4}
 return

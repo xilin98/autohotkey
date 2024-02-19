@@ -1,10 +1,10 @@
-;; v2rayN 的快捷键 v  测试
+;; v2rayN 的快捷键 v 测试
 #IfWinActive, ahk_exe v2rayN.exe
   v::
-    SendInput, ^a
-    sendInput, ^p
+    send, ^a
+    send, ^p
     sleep, 2000
-    sendinput, {enter}
+    send, {enter}
   return
 #if
 
@@ -32,5 +32,5 @@
   ; return
 
   RShift:: 
-    SendInput, {f8}
+    send, {f8}
   return

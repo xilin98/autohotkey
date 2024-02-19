@@ -2,76 +2,76 @@ esc::
 Return
 
 esc & space:: 
-  SendInput, {esc}
+  send, {esc}
 return
 
 ;; 打开终端 
 #If WinActive("ahk_exe code.exe")
 esc & t::
 ^+!t::
-  SendInput, ^+t
+  send, ^+t
 return
 #if
 
 #If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
 ^+!t::
 esc & t::
-  sendinput, ^+i
+  send, ^+i
 return
 #if 
 
 ^+!t::
 esc & t::
-  sendinput, #3
+  send, #3
 return
 
 ;; 移动
 esc & j::
-  sendinput {down 5}
+  send {down 5}
 return
 
 esc & k::
-  sendinput {up 5}
+  send {up 5}
 return 
 
 esc & l::
-  sendinput {right 20} 
+  send {right 20} 
 return
 
 esc & h::
-  sendinput {left 20}
+  send {left 20}
 return
 
 ;; 应用切换
 esc & 1::
-  sendinput, #1
+  send, #1
 return
 
 esc & 2::
-  sendinput, #2
+  send, #2
 return
 
 esc & 3::
-  sendinput, #3
+  send, #3
 return
 
 esc & 4::
-  sendinput, #4
+  send, #4
 return
 
 esc & 5::
-  sendinput, #5
+  send, #5
 return
 
 ;; 打开, 关闭侧边栏 
 #if WinActive("ahk_exe obsidian.exe")
 
 esc & 9::
-  sendinput, ^+!0
+  send, ^+!0
 return
 
 esc & 0::
-  sendinput, ^+!9
+  send, ^+!9
 return
 
 #if
@@ -79,7 +79,7 @@ return
 #if WinActive("ahk_exe code.exe")
 
 esc & 9::
-  sendinput, ^b
+  send, ^b
 return
 
 #if
@@ -87,45 +87,45 @@ return
 ;; 页面路由
 esc & q::
 esc & LButton::
-  sendinput, !{left} 
+  send, !{left} 
 return
 
 esc & w::
 esc & RButton::
-  sendinput, !{right} 
+  send, !{right} 
 return
 
 ;; 回到桌面
 esc & d::
-  sendinput, #d
+  send, #d
 return
 
 ;; 关闭页面
 esc & b::
-  sendinput, ^w
+  send, ^w
 return
 
 ;; 分栏
 #If WinActive("ahk_exe obsidian.exe") or WinActive("ahk_exe code.exe")
 
 esc & [::
-  sendinput, ^+!j
+  send, ^+!j
 return
 
 esc & ]::
-  sendinput, ^+!k
+  send, ^+!k
 return
 
 esc & \::
-  sendinput, ^\
+  send, ^\
 return
 
 esc & r::
-  sendinput, ^y
+  send, ^y
 return
 
 esc & e::
-  sendinput, ^z
+  send, ^z
 return
 
 ;vscode 打开脚本文件夹
@@ -133,7 +133,7 @@ esc & /::
   run,cmd,C:\Users\12624\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
   sleep, 200
   WinGet, active_id, PID, A 
-  sendInput, code{space}.{enter}
+  send, code{space}.{enter}
   run, taskkill /PID %active_id% /F,,Hide
 return
 
@@ -141,95 +141,95 @@ return
 #IfWinActive, ahk_exe code.exe
   ;hover提示
 esc & a::
-  sendinput,^k 
+  send,^k 
   sleep,100
-  sendinput,^i
+  send,^i
 return 
 
 ;代码提示 (metion)
 esc & m::
-  sendinput, ^i
+  send, ^i
 return
 
 ;跳转到 (in to the definetion)
 esc & i::
-  sendinput, {f12}
+  send, {f12}
 return
 
 ; figure out the north
 esc & n::
-  sendinput, ^+!z
+  send, ^+!z
 return
 #if
 
 ;搜索
 esc & f::
-  sendinput, ^f
+  send, ^f
 return
 
 #If WinActive("ahk_exe chrome.exe") 
 esc & g::
-sendinput, ^k
+send, ^k
 return
 #if 
 
 esc & g::
-  sendinput, ^+f
+  send, ^+f
 return
 
 ;关闭应用
 esc & Delete::
-  SendInput, !{f4}
+  send, !{f4}
 return 
 
 esc & y::
-  sendinput, ^c
+  send, ^c
 Return
 
 esc & p::
-  sendinput, ^v
+  send, ^v
 return
 
 ; ob 代码块格式化
 #IfWinActive ahk_exe obsidian.exe
 
 esc & n::
-  sendinput, !+s
+  send, !+s
 return
 
 ; 模式转换
 esc & m::
-  sendinput, ^{tab}
+  send, ^{tab}
 return
 #if 
 
 #If WinActive("ahk_exe code.exe")
 esc & .::
-sendinput,^+[
+send,^+[
 return 
 #if
 
 esc & .::
-  SendInput, ^+.
+  send, ^+.
 return
 
 esc & u::
-  SendInput, {f11}
+  send, {f11}
 return
 
 esc & ,::
-  SendInput, {f2}
+  send, {f2}
 return
 
 ; 上下文菜单
 esc & '::
-  sendinput, {AppsKey down}
+  send, {AppsKey down}
 return
 
-esc & WheelUp::
-  SendInput, {ShiftAltTab}
-return
+; esc & WheelUp::
+;   send, ShiftAltTab
+; return
 
-esc & WheelDown::
-  SendInput, {AltTab}
-return
+; esc & WheelDown::
+;   send, AltTab
+; return

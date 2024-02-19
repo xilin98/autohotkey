@@ -1,146 +1,146 @@
 ;; 打开终端 alt + t
 #If WinActive("ahk_exe code.exe")
   !t::
-  SendInput, ^+t
+  send, ^+t
   #if
 
   #If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
     !t::
-    sendinput, ^+i
+    send, ^+i
   return
   #if
 
   !t::
-    sendinput, #3
+    send, #3
   return
 
   ;; 打开, 关闭侧边栏 (vscode obsidian) 左边 alt + 9 右边 alt + 0
   #if WinActive("ahk_exe obsidian.exe")
   !9::
-  sendinput, ^+!0
+  send, ^+!0
 return
 
 !0::
-  sendinput, ^+!9
+  send, ^+!9
 return
 #if
 
 #if WinActive("ahk_exe code.exe")
 
 !0::
-  sendinput, ^0
+  send, ^0
 return
 
 #if
 
 ;; 页面路由 alt + , 返回 alt + . 前进
 !,::
-  sendinput, !{left}
+  send, !{left}
 return
 
 !.::
-  sendinput, !{right}
+  send, !{right}
 return
 
 ;; 关闭页面 alt + b
 !b::
-  sendinput, ^w
+  send, ^w
 return
 
 ;; vscode  alt + a hover 提示
 #IfWinActive, ahk_exe code.exe
 !a::
-  sendinput,^k
+  send,^k
   sleep,100
-  sendinput,^i
+  send,^i
 return
 
 ;; vscode 代码提示 alt +d
 !d::
-  sendinput, ^i
+  send, ^i
 return
 
 ;; vscode 代码跳转 (in to the definetion) alt + i (f12)
 !i::
-  sendinput, {f12}
+  send, {f12}
 return
 
 ;; 搜索 alt + f 当前文件搜索 alt + g 全局搜搜索
 !f::
-  sendinput, ^f
+  send, ^f
 return
 
 #If WinActive("ahk_exe chrome.exe")
 !g::
-sendinput, ^k
+send, ^k
 return
 #if
 
 !g::
-  sendinput, ^+f
+  send, ^+f
 return
 
 ;; 复制 黏贴 alt + y  alt + p
 !y::
-  sendinput, ^c
+  send, ^c
 Return
 
 ;; 全屏 alt + u
 !u::
-  SendInput, {f11}
+  send, {f11}
 return
 
 ;; 重命名 alt + r
 !r::
-  SendInput, {f2}
+  send, {f2}
 return,
 
 ;; 移动 alt + h j k l
 !h::
-  sendInput, {left}
+  send, {left}
 return
 
 !j::
-  sendInput, {down}
+  send, {down}
 return
 
 !k::
-  sendInput, {up}
+  send, {up}
 return
 
 !l::
-  sendInput, {right}
+  send, {right}
 return
 
 ; 继承部分ctrl 功能 alt + / 注释 alt + s 保存 alt + m 字典
 !/::
-  sendInput, ^/
+  send, ^/
 return
 
 !s::
-  sendinput, ^s
+  send, ^s
 return
 
 !m::
-  sendinput, ^m
+  send, ^m
 return
 
 ;; 桌面多开 alt + [ 左边桌面, alt + ] 右边桌面, alt+\ 新建桌面, alt + BackSpace 关闭桌面
 ![::
-  sendInput, #^{left}
+  send, #^{left}
 return
 
 ;右边桌面
 !]::
-  sendInput, #^{right}
+  send, #^{right}
 return
 
 ;新建
 !\::
-  sendinput, ^#d
+  send, ^#d
 return
 
 ;关闭
 !BackSpace::
-  sendInput, ^#{f4}
+  send, ^#{f4}
 return

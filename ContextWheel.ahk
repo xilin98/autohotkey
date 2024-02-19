@@ -74,7 +74,7 @@ _WheelAction(flag) {
         if (_IsHoverWinTitleBar(relativeX, relativeY, winWidth, 150))
             _CommonTabAction(flag)
         else if (_IsHoverWinParticularRect(relativeX, relativeY, winWidth-60, winWidth, 150, winHeight)) ;滚动条
-            return _CommonScrollbarAction(flag)     ;此处return是为了避免执行sendInput, WheelDown; 否则页面滚动会多一个WheelDown动作
+            return _CommonScrollbarAction(flag)     ;此处return是为了避免执行send, WheelDown; 否则页面滚动会多一个WheelDown动作
         else if (_IsHoverWinBottomBar(relativeX, relativeY, 150, winWidth, winHeight) && _IsMouseLeftButtonPressed()) { ;在窗口底部中间位置，且按下鼠标左键
             return _CommonHorizontalDirectionAction2(flag)  ;对于比较宽有横向滚动条的页面，使用鼠标滚轮控制
         }
@@ -127,9 +127,9 @@ _WheelAction(flag) {
     }
     
     if (flag)
-        SendInput, {WheelUp}
+        send, {WheelUp}
     else
-        SendInput, {WheelDown}
+        send, {WheelDown}
 }
 ;========================= 业务逻辑 =========================
 
@@ -177,57 +177,57 @@ _IsMouseLeftButtonPressed() {   ;是否按下了鼠标左键
 
 _CommonTabAction(flag) {
     if (flag)
-        SendInput, ^{PgUp}
+        send, ^{PgUp}
     else
-        SendInput, ^{PgDn}
+        send, ^{PgDn}
 }
 _CommonScrollbarAction(flag) {
     if (flag)
-        SendInput, {PgUp}
+        send, {PgUp}
     else
-        SendInput, {PgDn}
+        send, {PgDn}
 }
 _CommonVolumeAction(flag) {
     if (flag)
-        SendInput, {Volume_Up 5}
+        send, {Volume_Up 5}
     else
-        SendInput, {Volume_Down 5}
+        send, {Volume_Down 5}
 }
 _CommonSystemLevelMusicAction(flag) {
     if (flag)
-        SendInput, {Media_Prev}
+        send, {Media_Prev}
     else
-        SendInput, {Media_Next}
+        send, {Media_Next}
 }
 _CommonMusicAction(flag) {
     if (flag)
-        SendInput, ^{Left}
+        send, ^{Left}
     else
-        SendInput, ^{Right}
+        send, ^{Right}
 }
 _CommonHorizontalDirectionAction(flag) {
     if (flag)
-        SendInput, {Left}
+        send, {Left}
     else
-        SendInput, {Right}
+        send, {Right}
 }
 _CommonHorizontalDirectionAction2(flag) {
     if (flag)
-        SendInput, {Left 2}
+        send, {Left 2}
     else
-        SendInput, {Right 2}
+        send, {Right 2}
 }
 _CommonVerticalDirectionAction(flag) {
     if (flag)
-        SendInput, {Up}
+        send, {Up}
     else
-        SendInput, {Down}
+        send, {Down}
 }
 _CommonVirtualDesktopAction(flag) {
     if (flag)
-        SendInput, #^{Left}     ;Win+Ctrl+左
+        send, #^{Left}     ;Win+Ctrl+左
     else
-        SendInput, #^{Right}	;Win+Ctrl+右
+        send, #^{Right}	;Win+Ctrl+右
 }
 
 

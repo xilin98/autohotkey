@@ -1,86 +1,86 @@
 ﻿
 ;; html 缩写
 :?:---::
-  sendinput, <hr>
+  send, <hr>
 return
 
 ;; markdown 缩写
 :?:h1:: 
-  sendInput {#}{space}
+  send {#}{space}
 return
 
 :?:h2::
-  sendinput {#}{#}{space}
+  send {#}{#}{space}
 return
 
 :?:h3::
-  sendinput {#}{#}{#}{space}
+  send {#}{#}{#}{space}
 return
 
 :?:h4::
-  sendinput {#}{#}{#}{#}{space}
+  send {#}{#}{#}{#}{space}
 return
 
 :?:h5::
-  sendinput {#}{#}{#}{#}{#}{space}
+  send {#}{#}{#}{#}{#}{space}
 return
 
 :?:h6::
-  sendinput {#}{#}{#}{#}{#}{#}{space}
+  send {#}{#}{#}{#}{#}{#}{space}
 return
 
 ;; 中文 引号
 :?:;':: 
-  sendinput, `「」` 
+  send, `「」` 
 return 
 
 ;; js keyword 缩写
 
 ; console.log
 :?*:;co::
-  sendinput,console.log(){left 1}
+  send,console.log(){left 1}
 return
 
 ; return
 :?:ret::
-  sendinput, returj{BackSpace}n
+  send, returj{BackSpace}n
 return
 
 ; const
 :?:;c::
-  sendinput, const
+  send, const
 return
 
 ; js 代码块
 :?:;j::
-  sendinput, ``
-  sendinput, ``
-  sendinput, ``
-  sendinput, js
+  send, ``
+  send, ``
+  send, ``
+  send, js
 return
 
 :?:ddd::
   FormatTime, CurrentDateTime,, yyyy/MM/dd
-  SendInput %CurrentDateTime%
+  send %CurrentDateTime%
 return
 
 ;; git 命令
 :?:;gco::
-  SendInput, git checkout 
+  send, git checkout 
 return
 
 :?:;gbv::
-  sendinput, git branch -vaa
+  send, git branch -vaa
 return
 
 :?:;glo::
-  SendInput, git log --pretty=one
+  send, git log --pretty=one
 return
 
 :?:;gcm::
-  SendInput, git commit -m
+  send, git commit -m
 Return
 
 :?:;gd::
-  SendInput, git add 
+  send, git add 
 Return

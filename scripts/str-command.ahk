@@ -37,5 +37,5 @@ return
 
 ;; 跳到代码块
 :?:;@::
-  SendInput, ^+o
+  send, ^+o
 return

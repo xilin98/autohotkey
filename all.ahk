@@ -32,148 +32,148 @@ return
 ;; 打开终端 alt + t
 #If WinActive("ahk_exe code.exe")
   !t::
-  SendInput, ^+t
+  send, ^+t
   #if
 
   #If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
     !t::
-    sendinput, ^+i
+    send, ^+i
   return
   #if
 
   !t::
-    sendinput, #3
+    send, #3
   return
 
   ;; 打开, 关闭侧边栏 (vscode obsidian) 左边 alt + 9 右边 alt + 0
   #if WinActive("ahk_exe obsidian.exe")
   !9::
-  sendinput, ^+!0
+  send, ^+!0
 return
 
 !0::
-  sendinput, ^+!9
+  send, ^+!9
 return
 #if
 
 #if WinActive("ahk_exe code.exe")
 
 !0::
-  sendinput, ^0
+  send, ^0
 return
 
 #if
 
 ;; 页面路由 alt + , 返回 alt + . 前进
 !,::
-  sendinput, !{left}
+  send, !{left}
 return
 
 !.::
-  sendinput, !{right}
+  send, !{right}
 return
 
 ;; 关闭页面 alt + b
 !b::
-  sendinput, ^w
+  send, ^w
 return
 
 ;; vscode  alt + a hover 提示
 #IfWinActive, ahk_exe code.exe
 !a::
-  sendinput,^k
+  send,^k
   sleep,100
-  sendinput,^i
+  send,^i
 return
 
 ;; vscode 代码提示 alt +d
 !d::
-  sendinput, ^i
+  send, ^i
 return
 
 ;; vscode 代码跳转 (in to the definetion) alt + i (f12)
 !i::
-  sendinput, {f12}
+  send, {f12}
 return
 
 ;; 搜索 alt + f 当前文件搜索 alt + g 全局搜搜索
 !f::
-  sendinput, ^f
+  send, ^f
 return
 
 #If WinActive("ahk_exe chrome.exe")
 !g::
-sendinput, ^k
+send, ^k
 return
 #if
 
 !g::
-  sendinput, ^+f
+  send, ^+f
 return
 
 ;; 复制 黏贴 alt + y  alt + p
 !y::
-  sendinput, ^c
+  send, ^c
 Return
 
 ;; 全屏 alt + u
 !u::
-  SendInput, {f11}
+  send, {f11}
 return
 
 ;; 重命名 alt + r
 !r::
-  SendInput, {f2}
+  send, {f2}
 return,
 
 ;; 移动 alt + h j k l
 !h::
-  sendInput, {left}
+  send, {left}
 return
 
 !j::
-  sendInput, {down}
+  send, {down}
 return
 
 !k::
-  sendInput, {up}
+  send, {up}
 return
 
 !l::
-  sendInput, {right}
+  send, {right}
 return
 
 ; 继承部分ctrl 功能 alt + / 注释 alt + s 保存 alt + m 字典
 !/::
-  sendInput, ^/
+  send, ^/
 return
 
 !s::
-  sendinput, ^s
+  send, ^s
 return
 
 !m::
-  sendinput, ^m
+  send, ^m
 return
 
 ;; 桌面多开 alt + [ 左边桌面, alt + ] 右边桌面, alt+\ 新建桌面, alt + BackSpace 关闭桌面
 ![::
-  sendInput, #^{left}
+  send, #^{left}
 return
 
 ;右边桌面
 !]::
-  sendInput, #^{right}
+  send, #^{right}
 return
 
 ;新建
 !\::
-  sendinput, ^#d
+  send, ^#d
 return
 
 ;关闭
 !BackSpace::
-  sendInput, ^#{f4}
+  send, ^#{f4}
 return
 
 
@@ -182,76 +182,76 @@ esc::
 Return
 
 esc & space:: 
-  SendInput, {esc}
+  send, {esc}
 return
 
 ;; 打开终端 
 #If WinActive("ahk_exe code.exe")
 esc & t::
 ^+!t::
-  SendInput, ^+t
+  send, ^+t
 return
 #if
 
 #If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
 ^+!t::
 esc & t::
-  sendinput, ^+i
+  send, ^+i
 return
 #if 
 
 ^+!t::
 esc & t::
-  sendinput, #3
+  send, #3
 return
 
 ;; 移动
 esc & j::
-  sendinput {down 5}
+  send {down 5}
 return
 
 esc & k::
-  sendinput {up 5}
+  send {up 5}
 return 
 
 esc & l::
-  sendinput {right 20} 
+  send {right 20} 
 return
 
 esc & h::
-  sendinput {left 20}
+  send {left 20}
 return
 
 ;; 应用切换
 esc & 1::
-  sendinput, #1
+  send, #1
 return
 
 esc & 2::
-  sendinput, #2
+  send, #2
 return
 
 esc & 3::
-  sendinput, #3
+  send, #3
 return
 
 esc & 4::
-  sendinput, #4
+  send, #4
 return
 
 esc & 5::
-  sendinput, #5
+  send, #5
 return
 
 ;; 打开, 关闭侧边栏 
 #if WinActive("ahk_exe obsidian.exe")
 
 esc & 9::
-  sendinput, ^+!0
+  send, ^+!0
 return
 
 esc & 0::
-  sendinput, ^+!9
+  send, ^+!9
 return
 
 #if
@@ -259,7 +259,7 @@ return
 #if WinActive("ahk_exe code.exe")
 
 esc & 9::
-  sendinput, ^b
+  send, ^b
 return
 
 #if
@@ -267,45 +267,45 @@ return
 ;; 页面路由
 esc & q::
 esc & LButton::
-  sendinput, !{left} 
+  send, !{left} 
 return
 
 esc & w::
 esc & RButton::
-  sendinput, !{right} 
+  send, !{right} 
 return
 
 ;; 回到桌面
 esc & d::
-  sendinput, #d
+  send, #d
 return
 
 ;; 关闭页面
 esc & b::
-  sendinput, ^w
+  send, ^w
 return
 
 ;; 分栏
 #If WinActive("ahk_exe obsidian.exe") or WinActive("ahk_exe code.exe")
 
 esc & [::
-  sendinput, ^+!j
+  send, ^+!j
 return
 
 esc & ]::
-  sendinput, ^+!k
+  send, ^+!k
 return
 
 esc & \::
-  sendinput, ^\
+  send, ^\
 return
 
 esc & r::
-  sendinput, ^y
+  send, ^y
 return
 
 esc & e::
-  sendinput, ^z
+  send, ^z
 return
 
 ;vscode 打开脚本文件夹
@@ -313,7 +313,7 @@ esc & /::
   run,cmd,C:\Users\12624\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
   sleep, 200
   WinGet, active_id, PID, A 
-  sendInput, code{space}.{enter}
+  send, code{space}.{enter}
   run, taskkill /PID %active_id% /F,,Hide
 return
 
@@ -321,97 +321,97 @@ return
 #IfWinActive, ahk_exe code.exe
   ;hover提示
 esc & a::
-  sendinput,^k 
+  send,^k 
   sleep,100
-  sendinput,^i
+  send,^i
 return 
 
 ;代码提示 (metion)
 esc & m::
-  sendinput, ^i
+  send, ^i
 return
 
 ;跳转到 (in to the definetion)
 esc & i::
-  sendinput, {f12}
+  send, {f12}
 return
 
 ; figure out the north
 esc & n::
-  sendinput, ^+!z
+  send, ^+!z
 return
 #if
 
 ;搜索
 esc & f::
-  sendinput, ^f
+  send, ^f
 return
 
 #If WinActive("ahk_exe chrome.exe") 
 esc & g::
-sendinput, ^k
+send, ^k
 return
 #if 
 
 esc & g::
-  sendinput, ^+f
+  send, ^+f
 return
 
 ;关闭应用
 esc & Delete::
-  SendInput, !{f4}
+  send, !{f4}
 return 
 
 esc & y::
-  sendinput, ^c
+  send, ^c
 Return
 
 esc & p::
-  sendinput, ^v
+  send, ^v
 return
 
 ; ob 代码块格式化
 #IfWinActive ahk_exe obsidian.exe
 
 esc & n::
-  sendinput, !+s
+  send, !+s
 return
 
 ; 模式转换
 esc & m::
-  sendinput, ^{tab}
+  send, ^{tab}
 return
 #if 
 
 #If WinActive("ahk_exe code.exe")
 esc & .::
-sendinput,^+[
+send,^+[
 return 
 #if
 
 esc & .::
-  SendInput, ^+.
+  send, ^+.
 return
 
 esc & u::
-  SendInput, {f11}
+  send, {f11}
 return
 
 esc & ,::
-  SendInput, {f2}
+  send, {f2}
 return
 
 ; 上下文菜单
 esc & '::
-  sendinput, {AppsKey down}
+  send, {AppsKey down}
 return
 
 esc & WheelUp::
-  SendInput, {up 20}
+  send, {up 20}
 return
 
 esc & WheelDown::
-  SendInput, {down 20}
+  send, {down 20}
 return
 
 
@@ -420,83 +420,83 @@ return
 
 ;; markdown 缩写
 :?:h1:: 
-  sendInput {#}{space}
+  send {#}{space}
 return
 
 :?:h2::
-  sendinput {#}{#}{space}
+  send {#}{#}{space}
 return
 
 :?:h3::
-  sendinput {#}{#}{#}{space}
+  send {#}{#}{#}{space}
 return
 
 :?:h4::
-  sendinput {#}{#}{#}{#}{space}
+  send {#}{#}{#}{#}{space}
 return
 
 :?:h5::
-  sendinput {#}{#}{#}{#}{#}{space}
+  send {#}{#}{#}{#}{#}{space}
 return
 
 :?:h6::
-  sendinput {#}{#}{#}{#}{#}{#}{space}
+  send {#}{#}{#}{#}{#}{#}{space}
 return
 
 ;; 中文 引号
 :?:;':: 
-  sendinput, `「」` 
+  send, `「」` 
 return 
 
 ;; js keyword 缩写
 
 ; console.log
 :?*:;co::
-  sendinput,console.log(){left 1}
+  send,console.log(){left 1}
 return
 
 ; return
 :?:ret::
-  sendinput, returj{BackSpace}n
+  send, returj{BackSpace}n
 return
 
 ; const
 :?:;c::
-  sendinput, const
+  send, const
 return
 
 ; js 代码块
 :?:;j::
-  sendinput, ``
-  sendinput, ``
-  sendinput, ``
-  sendinput, js
+  send, ``
+  send, ``
+  send, ``
+  send, js
 return
 
 :?:ddd::
   FormatTime, CurrentDateTime,, yyyy/MM/dd
-  SendInput %CurrentDateTime%
+  send %CurrentDateTime%
 return
 
 ;; git 命令
 :?:;gco::
-  SendInput, git checkout 
+  send, git checkout 
 return
 
 :?:;gbv::
-  sendinput, git branch -vaa
+  send, git branch -vaa
 return
 
 :?:;glo::
-  SendInput, git log --pretty=one
+  send, git log --pretty=one
 return
 
 :?:;gcm::
-  SendInput, git commit -m
+  send, git commit -m
 Return
 
 :?:;gd::
-  SendInput, git add 
+  send, git add 
 Return
 
 
@@ -514,10 +514,10 @@ Return
 ;; v2rayN 的快捷键 v  测试
 #IfWinActive, ahk_exe v2rayN.exe
   v::
-    SendInput, ^a
-    sendInput, ^p
+    send, ^a
+    send, ^p
     sleep, 2000
-    sendinput, {enter}
+    send, {enter}
   return
   #if
 
@@ -545,7 +545,7 @@ Return
   ; return
 
   RShift:: 
-    SendInput, {f8}
+    send, {f8}
   return
 
 
@@ -588,20 +588,20 @@ return
 
 ;; 跳到代码块
 :?:;@::
-  SendInput, ^+o
+  send, ^+o
 return
 
 ;;---#
 ;;分屏
 #[::
-  sendinput, #{left}
+  send, #{left}
 return
 
 #]::
-  sendinput, #{right}
+  send, #{right}
 return
 
 ;;关闭应用
 #x::
-  sendInput, !{f4}
+  send, !{f4}
 return

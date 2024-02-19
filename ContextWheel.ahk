@@ -27,6 +27,8 @@ _BrightnessInit()
 
 WheelUp::           _WheelAction(true)
 WheelDown::         _WheelAction(false)
+
+; ># 这个设计就非常的 nice
 LWin & WheelUp::    ShiftAltTab
 LWin & WheelDown::  AltTab
 ^+WheelUp::         _ReSizeWin(true)

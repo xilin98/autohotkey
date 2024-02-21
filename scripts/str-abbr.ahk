@@ -1,5 +1,29 @@
 ﻿
-;; html 缩写
+:?:;h1::
+  send >{#}{space}
+return
+
+:?:;h2::
+  send >{#}{#}{space}
+return
+
+:?:;h3::
+  send >{#}{#}{#}{space}
+return
+
+:?:;h4::
+  send >{#}{#}{#}{#}{space}
+return
+
+:?:;h5::
+  send >{#}{#}{#}{#}{#}{space}
+return
+   
+:?:;h6::
+  send >{#}{#}{#}{#}{#}{#}{space}
+return
+
+;;>##  html 缩写
 :?:---::
   send, <hr>
 return
@@ -42,7 +66,7 @@ return
 return
 
 ; return
-:?:ret::
+:?:;ret::
   send, returj{BackSpace}n
 return
 
@@ -59,7 +83,7 @@ return
   send, js
 return
 
-:?:ddd::
+:?:;ddd::
   FormatTime, CurrentDateTime,, yyyy/MM/dd
   send %CurrentDateTime%
 return

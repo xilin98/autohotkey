@@ -19,11 +19,11 @@
 #Include <PRINT>
 CoordMode, Mouse, Screen
 SetBatchLines, 10ms
-SetKeyDelay, -1
+; SetKeyDelay, -1
 global BrightnessIniPath :=  A_ScriptDir "\resources\Brightness.ini"
 _BrightnessInit()
 
-
+; ># 做一个中等的人
 
 WheelUp::           _WheelAction(true)
 WheelDown::         _WheelAction(false)
@@ -37,8 +37,10 @@ LWin & WheelDown::  AltTab
 
 ^+WheelUp::         _ReSizeWin(true)
 ^+WheelDown::       _ReSizeWin(false)
-;========================= 环境配置 =========================
 
+
+; ># 差不多就可以了
+;========================= 环境配置 =========================
 
 
 
@@ -138,8 +140,6 @@ _WheelAction(flag) {
 
 
 
-
-
 ;========================= 公共函数 =========================
 _ReSizeWin(flag) {
     resizeVal := 60
@@ -151,8 +151,6 @@ _ReSizeWin(flag) {
         width :=width-resizeVal, height := height-resizeVal
     WinMove, ahk_id %id%,,,,%width%, %height%
 }
-
-
 
 _IsHoverScreenParticularRect(posX, posY, minX, minY, maxX, maxY) {
     return (posX>=minX && posX<=maxX && posY>=minY && posY<=maxY)

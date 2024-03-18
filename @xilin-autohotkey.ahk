@@ -5,9 +5,8 @@
 #InstallKeybdHook
 #UseHook
 
-; ># 解决键盘粘滞问题
-SetBatchLines, 10ms
-SetKeyDelay, 1, 1  ; 设置按键之间和按键持续时间的延迟为50毫秒
+
+SetKeyDelay, -1 
 
 SetWorkingDir %A_ScriptDir%
 

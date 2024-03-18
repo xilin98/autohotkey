@@ -23,23 +23,17 @@ SetBatchLines, 10ms
 global BrightnessIniPath :=  A_ScriptDir "\resources\Brightness.ini"
 _BrightnessInit()
 
-; ># 做一个中等的人
-
 WheelUp::           _WheelAction(true)
 WheelDown::         _WheelAction(false)
 
-; ># 这个设计就非常的 nice
+; ># nice design
 LWin & WheelUp::    ShiftAltTab
 LWin & WheelDown::  AltTab
-
-; Esc & WheelUp::    ShiftAltTab
-; Esc & WheelDown::  AltTab
 
 ^+WheelUp::         _ReSizeWin(true)
 ^+WheelDown::       _ReSizeWin(false)
 
 
-; ># 差不多就可以了
 ;========================= 环境配置 =========================
 
 

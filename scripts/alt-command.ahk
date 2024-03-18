@@ -1,23 +1,23 @@
 ;; 打开终端 alt + t
 #If WinActive("ahk_exe code.exe")
+!t::
+send, ^+t
+#if
+
+#If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
   !t::
-  send, ^+t
-  #if
+  send, ^+i
+return
+#if
 
-  #If WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
-    !t::
-    send, ^+i
-  return
-  #if
+!t::
+  send, #3
+return
 
-  !t::
-    send, #3
-  return
-
-  ;; 打开, 关闭侧边栏 (vscode obsidian) 左边 alt + 9 右边 alt + 0
-  #if WinActive("ahk_exe obsidian.exe")
-  !9::
-  send, ^+!0
+;; 打开, 关闭侧边栏 (vscode obsidian) 左边 alt + 9 右边 alt + 0
+#if WinActive("ahk_exe obsidian.exe")
+!9::
+send, ^+!0
 return
 
 !0::

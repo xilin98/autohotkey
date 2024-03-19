@@ -1,30 +1,30 @@
 ;;---全局
 #Hotstring EndChars ) )
 #SingleInstance Force
+SetWorkingDir %A_ScriptDir%
 #MaxHotkeysPerInterval 200
 #InstallKeybdHook
+#Persistent  ; 保持脚本持续运行
 #UseHook
-
 
 SetKeyDelay, -1 
 
-SetWorkingDir %A_ScriptDir%
-
-#Persistent  ; 保持脚本持续运行
+; ># 解决键盘粘滞问题
 SetTimer, CheckKeys, 100  ; 每100毫秒检查一次按键状态
 
 CheckKeys:
     Loop, 256  ; 检查每个按键（ASCII值）
     {
         key := Format("SC{:X}", A_Index)  ; 将按键编号转换为扫描码
-        If GetKeyState(key, "P")  ; 如果按键处于按下状态
+        If GetKeyState(key)  ; 如果按键处于按下状态
         {
             KeyWait, %key%, T0.1  ; 等待0.1秒看按键是否被释放
             If ErrorLevel  ; 如果按键仍然处于按下状态
             {
-                If !GetKeyState(key, "P")  ; 再次检查，防止在检查过程中按键被释放
-                    continue
-                Send, {%key% Up}  ; 强制发送按键释放命令
+                If !GetKeyState(key, "P")
+                    {
+                        Send, {%key% Up}  ; 强制发送按键释放命令
+                    }  
             }
         }
     }

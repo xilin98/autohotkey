@@ -9,30 +9,30 @@ Hotstring("EndChars", " ")
 #UseHook
 
 SetKeyDelay(-1)
-
 SetWorkingDir(A_ScriptDir)
+
 if (!A_IsAdmin)
-{ 
-   Run("*RunAs " A_ScriptFullPath)
-   ExitApp
+{
+  Run("*RunAs " A_ScriptFullPath)
+  ExitApp
 }
 
 :*:;;re::{Reload}
 
 ; ># Alt 有关热键
 ; >## Alt + t 打开 终端
-!t::{
+!t:: {
   if WinActive("ahk_exe code.exe")
-    {
+  {
     Send("^+t")
     return
-    }
+  }
 
   if WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
-    {
+  {
     Send('^+i')
     return
-    }
+  }
   Send('#3')
 }
 return
@@ -44,25 +44,25 @@ return
 }
 
 ; >## 移动 alt + h j k l
-!h:: 
+!h::
 {
   send('{left}')
   return
 }
 
-!j:: 
+!j::
 {
   send('{down}')
   return
 }
 
-!k:: 
+!k::
 {
   send('{up}')
   return
 }
 
-!l:: 
+!l::
 {
   send('{right}')
   return
@@ -100,7 +100,7 @@ return
   return
 }
 
-!BackSpace::{
+!BackSpace:: {
   send("^#{f4}")
   return
 }
@@ -116,39 +116,39 @@ RAlt & space:: {
   send("{esc}")
   return
 }
-     
+
 
 RAlt & t::
 {
   if WinActive("ahk_exe code.exe")
-    {
+  {
     Send("^+t")
     return
-    }
+  }
 
   if WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
-    {
+  {
     Send('^+i')
     return
-    }
+  }
   Send('#3')
   return
 }
 
 ; >## 移动导航
-RAlt & h::{
+RAlt & h:: {
   send("{left 5}")
 }
 
-RAlt & j::{
+RAlt & j:: {
   send("{down 5}")
 }
 
-RAlt & k::{
+RAlt & k:: {
   send("{up 5}")
 }
 
-RAlt & l::{
+RAlt & l:: {
   send("{left 5}")
 }
 

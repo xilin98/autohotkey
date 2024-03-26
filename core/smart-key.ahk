@@ -10,8 +10,12 @@
 #SingleInstance Force
 
 ; >## 使用键盘钩子
+InstallKeybdHook
 #UseHook true
 
+A_MenuMaskKey := "vkE8"
+
+SetKeyDelay -1
 ; 启动目录作为工作目录
 SetWorkingDir A_InitialWorkingDir
 
@@ -25,27 +29,9 @@ if (!A_IsAdmin) {
 {
   Reload
 }
-; >## 解决键盘粘滞问题
-SetTimer(CheckKeys, 100)  ; 每100毫秒检查一次按键状态
-keys := "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-  . "F1F2F3F4F5F6F7F8F9F10F11F12"
-  . "!@#$%^&*()_+"
-  . "UpDownLeftRightSpaceCtrlAltShiftEnterTab"
-CheckKeys() {
-  for index, key in StrSplit(keys)
-  {
-    pressState := KeyWait(key, "T0.1")  ; 等待0.1秒看按键是否被释放
-    If (!pressState)  ; 如果按键仍然处于按下状态
-    {
-      If !GetKeyState(key, "P")
-      {
-        SendInput("{" . key . "up}")  ; 强制发送按键释放命令
-      }
-    }
-  }
-}
 
-; ># 为测试准备，打印字符串
+
+;k ># 为测试准备，打印字符串
 :*:;d::
 {
   MsgBox("111")
@@ -127,6 +113,12 @@ return
   return
 }
 
+!]::
+{
+  SendInput("#^{right}")
+  return
+}
+
 !\::
 {
   SendInput("^#d")
@@ -148,8 +140,8 @@ esc::
 >!space:: {
   SendInput("{esc}")
   return
-}
 
+}
 
 >!t::
 {
@@ -247,7 +239,6 @@ esc::
 {
   run "https://github.com/xilin98"
 }
-
 
 :?:baa::
 {

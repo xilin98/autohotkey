@@ -130,8 +130,7 @@ return
 run, cmd, C: \Users\12624\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 sleep, 200
 WinGet, active_id, PID, A
-send, code { space }. {
-  enter}
+send, code { space }. {enter}
 run, taskkill / PID %active_id% / F, , Hide
 return
 

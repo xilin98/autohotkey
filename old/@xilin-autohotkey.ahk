@@ -2,7 +2,9 @@
 #Hotstring EndChars ) )
 #SingleInstance Force
 SetWorkingDir %A_ScriptDir%
+
 #MaxHotkeysPerInterval 200
+
 #InstallKeybdHook
 #Persistent  ; 保持脚本持续运行
 #UseHook

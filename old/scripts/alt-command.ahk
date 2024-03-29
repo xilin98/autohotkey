@@ -114,7 +114,7 @@ return
 ; 继承部分ctrl 功能 alt + / 注释 alt + s 保存 alt + m 字典
 !/::
 send, ^ /
-  return
+return
 
 !s::
 send, ^ s

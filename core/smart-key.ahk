@@ -1,3 +1,4 @@
+
 ;; 这是核心文件, 必须准确和可靠
 ;; 使用前先使用 CapsToRAlt 把 CapsLock 映射为 RAlt 键
 #Requires AutoHotkey v2.0
@@ -9,20 +10,14 @@
 ; >## 确保脚本的单一实例运行
 #SingleInstance Force
 
-; >## 使用键盘钩子
+; >## 使用键盘钩子, 安装键盘钩子和使用 SendEvent 以后 键盘粘滞现象消失了
 InstallKeybdHook
 #UseHook true
 
-A_MenuMaskKey := "vkE8"
-
-SetKeyDelay -1
 ; 启动目录作为工作目录
 SetWorkingDir A_InitialWorkingDir
 
-if (!A_IsAdmin) {
-  Run("*RunAs " A_ScriptFullPath)
-  ExitApp
-}
+
 
 ; >## 重启脚本
 :*:;re::
@@ -30,60 +25,103 @@ if (!A_IsAdmin) {
   Reload
 }
 
+debug := "init"
+; >## 解决键盘粘滞问题
 
-;k ># 为测试准备，打印字符串
-:*:;d::
-{
-  MsgBox("111")
+SetTimer(CheckKeys, 100)  ; 每100毫秒检查一次按键状态
+CheckKeys() {
+  {
+    alt_press := GetKeyState("alt")  ; alt 键的逻辑状态
+    alt_p_press := GetKeyState("Alt", "P") 
+
+    global debug  
+    debug := "sticky"
+    If ((alt_press = 1) and (alt_p_press = 0))  ; 如果 alt 键逻辑上处于按下状态且物理上处于非按下状态
+    { 
+
+      debug := "sticky"
+      alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
+      alt_p_press_after := GetKeyState("Alt", "P")  
+
+      ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
+      ; {
+      ;   SendEvent("{alt}")  ; 强制发送按键释放命令
+      ;   SendEvent("{RAlt}")  ; 强制发送按键释放命令
+      ; }
+    }
+
+    If ((alt_press = 1) and  (alt_p_press = 1))  ; 如果 alt 键逻辑上处于按下状态且物理上处于非按下状态
+    { 
+      debug  := "fine"
+      alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
+      alt_p_press_after := GetKeyState("alt", "P") 
+      
+      ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
+      ; {
+      ;   SendEvent("{alt}")  ; 强制发送按键释放命令
+      ;   SendEvent("{RAlt}")  ; 强制发送按键释放命令
+      ; }
+    }
+  }
+}
+ 
+if (!A_IsAdmin) {
+  Run("*RunAs " A_ScriptFullPath)
+  ExitApp
 }
 
+; ># 为测试准备，打印字符串
+:*:;d::
+{
+  Msgbox(debug)
+}
 
 ; ># Alt 有关热键
 ; >## Alt + t 打开 终端
 !t:: {
   if WinActive("ahk_exe code.exe")
   {
-    SendInput("^+t")
+    SendEvent("^+t")
     return
   }
 
   if WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
   {
-    SendInput('^+i')
+    SendEvent('^+i')
     return
   }
-  SendInput('#3')
+  SendEvent('#3')
 }
 return
 
 !u::
 {
-  SendInput("^z")
+  SendEvent("^z")
   return
 }
 
 ; >## 移动 alt + h j k l
 !h::
 {
-  SendInput('{left}')
+  SendEvent('{left}')
   return
 }
 
 !j::
 {
-  SendInput('{down}')
+  SendEvent('{down}')
   return
 }
 
 !k::
 {
-  SendInput('{up}')
+  SendEvent('{up}')
   return
 }
 
 !l::
 {
-  SendInput('{right}')
+  SendEvent('{right}')
   return
 }
 
@@ -91,124 +129,166 @@ return
 
 !/::
 {
-  SendInput("^/")
+  SendEvent("^/")
   return
 }
 
 !s::
 {
-  SendInput("^s")
+  SendEvent("^s")
   return
 }
 
 !m::
 {
-  SendInput("^m")
+  SendEvent("^m")
   return
 }
 
 ![::
 {
-  SendInput("#^{left}")
+  SendEvent("#^{left}")
   return
 }
 
 !]::
 {
-  SendInput("#^{right}")
+  SendEvent("#^{right}")
   return
 }
 
 !\::
 {
-  SendInput("^#d")
+  SendEvent("^#d")
   return
 }
 
 !BackSpace:: {
-  SendInput("^#{f4}")
+  SendEvent("^#{f4}")
   return
 }
 
-; >#  有关热键
-esc::
-{
-  SendInput("{RAlt}")
-  return
-}
+; ># CapsLock(已映射为 RAlt) 有关热键
 
 >!space:: {
-  SendInput("{esc}")
+  SendEvent("{esc}")
   return
-
 }
 
 >!t::
 {
   if WinActive("ahk_exe code.exe")
   {
-    SendInput("^+t")
+    SendEvent("^+t")
     return
   }
 
   if WinActive("ahk_exe chrome.exe") or WinActive("ahk_exe obsidian.exe")
   {
-    SendInput('^+i')
+    SendEvent('^+i')
     return
   }
-  SendInput('#3')
+  SendEvent('#3')
   return
 }
 
 ; >## 移动导航
 >!h:: {
-  SendInput("{left 5}")
+  SendEvent("{left 5}")
 }
 
 >!j:: {
-  SendInput("{down 5}")
+  SendEvent("{down 5}")
 }
 
 >!k:: {
-  SendInput("{up 5}")
+  SendEvent("{up 5}")
 }
 
 >!l:: {
-  SendInput("{right 5}")
+  SendEvent("{right 5}")
 }
 
 
 ; >## 应用切换
 
 >!1:: {
-  SendInput("#1")
+  SendEvent("#1")
 }
 
 >!2:: {
-  SendInput("#2")
+  SendEvent("#2")
 }
 
 >!3:: {
-  SendInput("#3")
+  SendEvent("#3")
 }
 
 >!4:: {
-  SendInput("#4")
+  SendEvent("#4")
 }
 
 >!5:: {
-  SendInput("#5")
+  SendEvent("#5")
 }
 
 
 ; >## 复制 & 粘贴
 >!p:: {
-  SendInput("^v")
+  SendEvent("^v")
 }
 
 >!y:: {
-  SendInput("^c")
+  SendEvent("^c")
 }
+
+>!i::{
+  SendEvent("{f12}")
+}
+
+; >## 搜索
+>!f::{
+  SendEvent("^f")
+}
+
+>!g::{
+  SendEvent("^+f")
+}
+
+>!q::
+>!LButton::{
+  SendEvent("!{left}")
+}
+
+>!w::
+>!RButton::{
+  SendEvent("!{right}")
+}
+
+>!WheelUp::ShiftAltTab
+>!WheelDown::AltTab
+
+>!,::{
+  SendEvent("{f2}")
+}
+
+>!e::{
+  SendEvent("^{right}")
+}
+
+>!b::{
+  SendEvent("^{left}")
+}
+
+>![::{
+  SendEvent("^+[")
+}
+
+
+>!]::{
+  SendEvent("^+]")
+}
+
 
 ; ># 字符串命令
 ; ># 打开网址
@@ -253,4 +333,108 @@ esc::
 :?:lee::
 {
   run "https://leetcode.cn/"
+}
+
+
+; ># 缩写
+
+
+:?:;h1::{
+  SendEvent(">{#}{space}")
+}
+
+:?:;h2::{
+  SendEvent(">{#}{#}{space}")
+}
+
+:?:;h3::{
+  SendEvent(">{#}{#}{#}{space}")  
+}
+
+:?:;h4::{
+  SendEvent(">{#}{#}{#}{#}{space}")  
+}
+
+:?:;h5::{
+  SendEvent(">{#}{#}{#}{#}{#}{space}")
+}
+   
+:?:;h6::{
+  SendEvent(">{#}{#}{#}{#}{#}{#}{space}")  
+}
+
+;; markdown 缩写
+:?:h1::{
+  SendEvent("{#}{space}")  
+} 
+
+:?:h2::{
+  SendEvent("{#}{#}{space}")
+}
+
+:?:h3::{
+  SendEvent("{#}{#}{#}{space}")  
+}
+
+:?:h4::{
+  SendEvent("{#}{#}{#}{#}{space}")  
+}
+
+:?:h5::{
+  SendEvent("{#}{#}{#}{#}{#}{space}")  
+}
+
+:?:h6::{
+  SendEvent("{#}{#}{#}{#}{#}{#}{space}")
+}
+
+;; 中文 引号
+:?:;'::{
+  SendEvent("「」")
+} 
+
+;; js keyword 缩写
+
+; console.log
+:?*:;co::{
+  SendEvent("console.log(){left 1}")  
+}
+
+; return
+:?:;ret::{
+  SendEvent("return")
+}
+
+; const
+:?:;c::{
+  SendEvent("const")
+}
+
+; js 代码块
+:?:;j::{
+  SendEvent("{``")
+  SendEvent("{``")
+  SendEvent("{``")
+  SendEvent("js")
+}
+
+;; git 命令
+:?:;gco::{
+  SendEvent("git checkout")  
+}
+
+:?:;gbv::{
+  SendEvent("git branch -vaa")  
+}
+
+:?:;glo::{
+  SendEvent("git log --pretty=one")  
+}
+
+:?:;gcm::{
+  SendEvent("git commit -m")
+}
+
+:?:;gd::{
+  SendEvent("git add")
 }

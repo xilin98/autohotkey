@@ -29,7 +29,7 @@ return
 return
 
 ;; markdown 缩写
-:?:h1:: 
+:?:h1::
   send {#}{space}
 return
 

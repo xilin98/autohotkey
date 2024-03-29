@@ -64,7 +64,7 @@ CheckKeys() {
     }
   }
 }
- 
+
 if (!A_IsAdmin) {
   Run("*RunAs " A_ScriptFullPath)
   ExitApp
@@ -335,6 +335,7 @@ return
   run "https://leetcode.cn/"
 }
 
+:?:pyqh::-i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ; ># 缩写
 

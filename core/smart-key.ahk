@@ -265,6 +265,7 @@ return
   SendEvent("!{right}")
 }
 
+; >## 窗口切换
 >!WheelUp::ShiftAltTab
 >!WheelDown::AltTab
 

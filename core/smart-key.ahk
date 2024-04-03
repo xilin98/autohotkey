@@ -265,7 +265,6 @@ return
   SendEvent("!{right}")
 }
 
-; >## 窗口切换
 >!WheelUp::ShiftAltTab
 >!WheelDown::AltTab
 
@@ -290,6 +289,10 @@ return
   SendEvent("^+]")
 }
 
+; >## 是否显示桌面
+>!d::{
+  SendEvent("#d")
+}
 
 ; ># 字符串命令
 ; ># 打开网址

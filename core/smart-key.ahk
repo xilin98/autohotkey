@@ -18,7 +18,6 @@ InstallKeybdHook
 SetWorkingDir A_InitialWorkingDir
 
 
-
 ; >## 重启脚本
 :*:;re::
 {
@@ -168,7 +167,7 @@ return
   return
 }
 
-; ># CapsLock(已映射为 RAlt) 有关热键
+; ># CapsLock(已映射为 RAlt) 有关热
 
 >!space:: {
   SendEvent("{esc}")

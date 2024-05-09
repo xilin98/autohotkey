@@ -291,6 +291,14 @@ return
   SendEvent("#d")
 }
 
+^+LButton::{
+  SendEvent("^+[")
+}
+
+^+RButton::{
+  SendEvent("^+]")
+}
+
 ; ># 字符串命令
 ; ># 打开网址
 :?:goo::

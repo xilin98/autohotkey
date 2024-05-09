@@ -23,7 +23,7 @@ SetWorkingDir A_InitialWorkingDir
 {
   Reload
 }
-
+ 
 debug := "init"
 ; >## 解决键盘粘滞问题
 
@@ -70,10 +70,10 @@ if (!A_IsAdmin) {
 }
 
 ; ># 为测试准备，打印字符串
-:*:;d::
-{
-  Msgbox(debug)
-}
+; :*:;d::
+; {
+;   Msgbox(debug)
+; }
 
 ; ># Alt 有关热键
 ; >## Alt + t 打开 终端
@@ -395,6 +395,11 @@ return
 ;; 中文 引号
 :?:;'::{
   SendEvent("「」")
+} 
+
+:?:;ddd::{
+  currentDate := FormatTime()  ; 获取当前日期并格式化
+  SendEvent(currentDate)
 } 
 
 ;; js keyword 缩写

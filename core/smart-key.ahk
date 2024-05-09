@@ -23,8 +23,8 @@ SetWorkingDir A_InitialWorkingDir
 {
   Reload
 }
- 
-debug := "init"
+;; ============================================= NOT WORK ==================================================================
+debug := "debug"
 ; >## 解决键盘粘滞问题
 
 SetTimer(CheckKeys, 100)  ; 每100毫秒检查一次按键状态
@@ -37,11 +37,9 @@ CheckKeys() {
     debug := "sticky"
     If ((alt_press = 1) and (alt_p_press = 0))  ; 如果 alt 键逻辑上处于按下状态且物理上处于非按下状态
     { 
-
       debug := "sticky"
       alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
       alt_p_press_after := GetKeyState("Alt", "P")  
-
       ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
       ; {
       ;   SendEvent("{alt}")  ; 强制发送按键释放命令
@@ -54,7 +52,6 @@ CheckKeys() {
       debug  := "fine"
       alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
       alt_p_press_after := GetKeyState("alt", "P") 
-      
       ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
       ; {
       ;   SendEvent("{alt}")  ; 强制发送按键释放命令
@@ -63,6 +60,7 @@ CheckKeys() {
     }
   }
 }
+;; ============================================= NOT WORK ==================================================================
 
 if (!A_IsAdmin) {
   Run("*RunAs " A_ScriptFullPath)
@@ -70,10 +68,10 @@ if (!A_IsAdmin) {
 }
 
 ; ># 为测试准备，打印字符串
-; :*:;d::
-; {
-;   Msgbox(debug)
-; }
+:*:;;d::
+{
+  Msgbox(debug)
+}
 
 ; ># Alt 有关热键
 ; >## Alt + t 打开 终端
@@ -340,8 +338,9 @@ return
 
 :?:pyqh::-i https://pypi.tuna.tsinghua.edu.cn/simple
 
-; ># 缩写
+:?:;pip::pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+; ># 缩写
 
 :?:;h1::{
   SendEvent(">{#}{space}")

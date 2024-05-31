@@ -316,7 +316,7 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/cd31967273e44bb588d59ac94f38014b"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=6b06b81958e7493dbb26847cf38d4b3e"
 }
 
 :?:auu::
@@ -407,6 +407,14 @@ return
 :?:;ddd::{
   currentDate := FormatTime()  ; 获取当前日期并格式化
   SendEvent(currentDate)
+} 
+
+:?:;ip::{
+  SendEvent('121.43.164.214')
+} 
+
+:?:;ps::{
+  SendEvent('K312371n')
 } 
 
 ;; js keyword 缩写

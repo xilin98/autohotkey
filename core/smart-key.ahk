@@ -18,14 +18,13 @@ InstallKeybdHook
 SetWorkingDir A_InitialWorkingDir
 
 
-
 ; >## 重启脚本
 :*:;re::
 {
   Reload
 }
-
-debug := "init"
+;; ============================================= NOT WORK ==================================================================
+debug := "debug"
 ; >## 解决键盘粘滞问题
 
 SetTimer(CheckKeys, 100)  ; 每100毫秒检查一次按键状态
@@ -38,11 +37,9 @@ CheckKeys() {
     debug := "sticky"
     If ((alt_press = 1) and (alt_p_press = 0))  ; 如果 alt 键逻辑上处于按下状态且物理上处于非按下状态
     { 
-
       debug := "sticky"
       alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
       alt_p_press_after := GetKeyState("Alt", "P")  
-
       ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
       ; {
       ;   SendEvent("{alt}")  ; 强制发送按键释放命令
@@ -55,7 +52,6 @@ CheckKeys() {
       debug  := "fine"
       alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
       alt_p_press_after := GetKeyState("alt", "P") 
-      
       ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
       ; {
       ;   SendEvent("{alt}")  ; 强制发送按键释放命令
@@ -64,6 +60,7 @@ CheckKeys() {
     }
   }
 }
+;; ============================================= NOT WORK ==================================================================
 
 if (!A_IsAdmin) {
   Run("*RunAs " A_ScriptFullPath)
@@ -71,7 +68,7 @@ if (!A_IsAdmin) {
 }
 
 ; ># 为测试准备，打印字符串
-:*:;d::
+:*:;;d::
 {
   Msgbox(debug)
 }
@@ -168,7 +165,7 @@ return
   return
 }
 
-; ># CapsLock(已映射为 RAlt) 有关热键
+; ># CapsLock(已映射为 RAlt) 有关热
 
 >!space:: {
   SendEvent("{esc}")
@@ -294,6 +291,14 @@ return
   SendEvent("#d")
 }
 
+^+LButton::{
+  SendEvent("^+[")
+}
+
+^+RButton::{
+  SendEvent("^+]")
+}
+
 ; ># 字符串命令
 ; ># 打开网址
 :?:goo::
@@ -311,7 +316,7 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/cd31967273e44bb588d59ac94f38014b"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=6b06b81958e7493dbb26847cf38d4b3e"
 }
 
 :?:auu::
@@ -341,8 +346,9 @@ return
 
 :?:pyqh::-i https://pypi.tuna.tsinghua.edu.cn/simple
 
-; ># 缩写
+:?:;pip::pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+; ># 缩写
 
 :?:;h1::{
   SendEvent(">{#}{space}")
@@ -396,6 +402,19 @@ return
 ;; 中文 引号
 :?:;'::{
   SendEvent("「」")
+} 
+
+:?:;ddd::{
+  currentDate := FormatTime()  ; 获取当前日期并格式化
+  SendEvent(currentDate)
+} 
+
+:?:;ip::{
+  SendEvent('121.43.164.214')
+} 
+
+:?:;ps::{
+  SendEvent('K312371n')
 } 
 
 ;; js keyword 缩写

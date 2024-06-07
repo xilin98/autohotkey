@@ -267,10 +267,10 @@ return
 >!WheelDown::AltTab
 
 ; >## 切换桌面
-+WheelUp::{
+#WheelUp::{
   Send("^#{left}")
 }
-+WheelDown::{
+#WheelDown::{
   Send("^#{right}")
 }
 

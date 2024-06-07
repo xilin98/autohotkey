@@ -262,8 +262,17 @@ return
   SendEvent("!{right}")
 }
 
+; >## 切换窗口
 >!WheelUp::ShiftAltTab
 >!WheelDown::AltTab
+
+; >## 切换桌面
++WheelUp::{
+  Send("^#{left}")
+}
++WheelDown::{
+  Send("^#{right}")
+}
 
 >!,::{
   SendEvent("{f2}")

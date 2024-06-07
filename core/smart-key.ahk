@@ -471,3 +471,8 @@ return
 :?:;gd::{
   SendEvent("git add")
 }
+
+;; pip 命令
+:?:;pip::{
+  SendEvent("pip install -r requirements.txt")
+}

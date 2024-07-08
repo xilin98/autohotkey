@@ -325,7 +325,7 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=6b06b81958e7493dbb26847cf38d4b3e"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=9a5fa6145e1c4f358969ec46bc894e09"
 }
 
 :?:auu::

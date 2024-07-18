@@ -10,12 +10,14 @@
 ; >## 确保脚本的单一实例运行
 #SingleInstance Force
 
-; >## 使用键盘钩子, 安装键盘钩子和使用 SendEvent 以后 键盘粘滞现象消失了
 InstallKeybdHook
 #UseHook true
 
 ; 启动目录作为工作目录
 SetWorkingDir A_InitialWorkingDir
+
+; 为了解决键盘粘滞问题
+A_MenuMaskKey := "vkFF"
 
 
 ; >## 重启脚本
@@ -23,51 +25,17 @@ SetWorkingDir A_InitialWorkingDir
 {
   Reload
 }
-;; ============================================= NOT WORK ==================================================================
-debug := "debug"
-; >## 解决键盘粘滞问题
 
-SetTimer(CheckKeys, 100)  ; 每100毫秒检查一次按键状态
-CheckKeys() {
-  {
-    alt_press := GetKeyState("alt")  ; alt 键的逻辑状态
-    alt_p_press := GetKeyState("Alt", "P") 
 
-    global debug  
-    debug := "sticky"
-    If ((alt_press = 1) and (alt_p_press = 0))  ; 如果 alt 键逻辑上处于按下状态且物理上处于非按下状态
-    { 
-      debug := "sticky"
-      alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
-      alt_p_press_after := GetKeyState("Alt", "P")  
-      ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
-      ; {
-      ;   SendEvent("{alt}")  ; 强制发送按键释放命令
-      ;   SendEvent("{RAlt}")  ; 强制发送按键释放命令
-      ; }
-    }
-
-    If ((alt_press = 1) and  (alt_p_press = 1))  ; 如果 alt 键逻辑上处于按下状态且物理上处于非按下状态
-    { 
-      debug  := "fine"
-      alt_press_after := GetKeyState("alt")  ; alt 键的逻辑状态
-      alt_p_press_after := GetKeyState("alt", "P") 
-      ; If (alt_p_press) ; 如果按键物理状态不处于按下状态
-      ; {
-      ;   SendEvent("{alt}")  ; 强制发送按键释放命令
-      ;   SendEvent("{RAlt}")  ; 强制发送按键释放命令
-      ; }
-    }
-  }
-}
-;; ============================================= NOT WORK ==================================================================
-
+; 以管理员身份运行脚本
 if (!A_IsAdmin) {
   Run("*RunAs " A_ScriptFullPath)
   ExitApp
 }
 
 ; ># 为测试准备，打印字符串
+debug := "DEBUG"
+
 :*:;;d::
 {
   Msgbox(debug)
@@ -353,7 +321,7 @@ return
   run "https://leetcode.cn/"
 }
 
-:?:pyqh::-i https://pypi.tuna.tsinghua.edu.cn/simple
+:?:;-i::-i https://pypi.tuna.tsinghua.edu.cn/simple
 
 :?:;pip::pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
@@ -475,4 +443,9 @@ return
 ;; pip 命令
 :?:;pip::{
   SendEvent("pip install -r requirements.txt")
+}
+
+;># 打开常用文件夹
+:?:;jj::{
+  Run 'C:\Users\12624\.ssh'
 }

@@ -220,13 +220,11 @@ return
   SendEvent("^+f")
 }
 
->!q::
->!LButton::{
+>!q::{
   SendEvent("!{left}")
 }
 
->!w::
->!RButton::{
+>!w::{
   SendEvent("!{right}")
 }
 
@@ -234,12 +232,18 @@ return
 >!WheelUp::ShiftAltTab
 >!WheelDown::AltTab
 
+
 ; >## 切换桌面
 #WheelUp::{
-  Send("^#{left}")
+  SendEvent("^#{left}")
 }
 #WheelDown::{
-  Send("^#{right}")
+  SendEvent("^#{right}")
+}
+
+; 非常有用 :)
+>!RButton::{
+  SendEvent("#{tab}")
 }
 
 >!,::{
@@ -293,7 +297,7 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=9a5fa6145e1c4f358969ec46bc894e09"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=5113d51a556348ddb4737d7706a62092"
 }
 
 :?:auu::

@@ -19,7 +19,6 @@ SetWorkingDir A_InitialWorkingDir
 ; 为了解决键盘粘滞问题
 A_MenuMaskKey := "vkFF"
 
-
 ; >## 重启脚本
 :*:;re::
 {
@@ -174,7 +173,6 @@ return
   SendEvent("{right 5}")
 }
 
-
 ; >## 应用切换
 
 >!1:: {
@@ -196,7 +194,6 @@ return
 >!5:: {
   SendEvent("#5")
 }
-
 
 ; >## 复制 & 粘贴
 >!p:: {
@@ -297,7 +294,12 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=5113d51a556348ddb4737d7706a62092"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=43b528b31548476db8dd2e7f029cc403"
+}
+
+:?:too::
+{
+  run "https://www.notion.so/TODO-c90abfc080774d98943a6ab8fb806db9"
 }
 
 :?:auu::

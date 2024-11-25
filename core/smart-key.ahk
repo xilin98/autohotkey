@@ -294,12 +294,17 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=43b528b31548476db8dd2e7f029cc403"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=ee9bf72be7de42a4882221557c57bb6a"
 }
 
 :?:too::
 {
   run "https://www.notion.so/TODO-c90abfc080774d98943a6ab8fb806db9"
+}
+
+:?:gaa::
+{
+  run "https://www.notion.so/g-8d4e68264b54411591347b4e1fad32c6"
 }
 
 :?:auu::

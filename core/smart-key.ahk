@@ -32,6 +32,22 @@ if (!A_IsAdmin) {
   ExitApp
 }
 
+; ># 尝试解决键盘粘滞问题
+; 设置一个定时器，每500毫秒检查一次Alt键状态
+SetTimer(CheckAltKey, 500)
+
+CheckAltKey() {
+    ; 获取Alt键的物理状态和逻辑状态
+    physicalState := GetKeyState("Alt", "P")      ; "P"表示物理状态
+    logicalState := GetKeyState("Alt") ; "Logical"表示逻辑状态
+
+    ; 如果物理上未按下但逻辑上仍然按下
+    if (!physicalState && logicalState) {
+        ; 发送Alt键抬起事件
+        Send "{Alt up}"
+    }
+}
+
 ; ># 为测试准备，打印字符串
 debug := "DEBUG"
 
@@ -255,6 +271,7 @@ return
   SendEvent("^{left}")
 }
 
+; >## 开闭合代码块
 >![::{
   SendEvent("^+[")
 }

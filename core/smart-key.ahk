@@ -348,7 +348,25 @@ return
 {
   run "https://leetcode.cn/"
 }
+ 
+; ># 快速打开
+:?:;local::
+{
+  run "http://localhost:5173/"
+  cal  
+}
 
+:?:;120::
+{
+  run "http://192.168.1.120:5000/"
+}
+
+:?:;cloud::
+{
+  run "https://cloud.yexsys.com/"
+}
+
+; ># PIP
 :?:;-i::-i https://pypi.tuna.tsinghua.edu.cn/simple
 
 :?:;pip::pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple

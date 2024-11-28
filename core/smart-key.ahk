@@ -473,11 +473,6 @@ return
   SendEvent("pip install -r requirements.txt")
 }
 
-; ># 剪辑
-:?:;pd::{
-  SendEvent("#胖多金的微胖女孩 #胖多金 #记录真实生活")
-}
-
 ; ># 快速打开文件夹
 :?:;vv::{
   run "C:\Users\xilin\Videos\"

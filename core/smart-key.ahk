@@ -353,7 +353,6 @@ return
 :?:;local::
 {
   run "http://localhost:5173/"
-  cal  
 }
 
 :?:;120::
@@ -503,4 +502,8 @@ return
 ;># 打开常用文件夹
 :?:;jj::{
   Run 'C:\Users\12624\.ssh'
+}
+
+:?:;ll::{
+  DllCall("LockWorkStation")
 }

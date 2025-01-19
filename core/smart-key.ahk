@@ -525,9 +525,9 @@ return
   Run 'C:\Users\xilin\AppData\Local\JianyingPro\User Data\Projects\com.lveditor.draft'
 }
 
-:?:;ll::{
-  Run 'C:\Users\xilin\Desktop\Recoder\downloads\抖音直播'
-}
+;:?:;ll::{
+;  Run 'C:\Users\xilin\Desktop\Recoder\downloads\抖音直播'
+;}
 
 :?:;ll::{
   DllCall("LockWorkStation")

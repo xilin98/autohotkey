@@ -19,7 +19,6 @@ SetWorkingDir A_InitialWorkingDir
 ; 为了解决键盘粘滞问题
 A_MenuMaskKey := "vkFF"
 
-
 ; >## 重启脚本
 :*:;re::
 {
@@ -31,6 +30,22 @@ A_MenuMaskKey := "vkFF"
 if (!A_IsAdmin) {
   Run("*RunAs " A_ScriptFullPath)
   ExitApp
+}
+
+; ># 尝试解决键盘粘滞问题
+; 设置一个定时器，每500毫秒检查一次Alt键状态
+SetTimer(CheckAltKey, 500)
+
+CheckAltKey() {
+    ; 获取Alt键的物理状态和逻辑状态
+    physicalState := GetKeyState("Alt", "P")      ; "P"表示物理状态
+    logicalState := GetKeyState("Alt") ; "Logical"表示逻辑状态
+
+    ; 如果物理上未按下但逻辑上仍然按下
+    if (!physicalState && logicalState) {
+        ; 发送Alt键抬起事件
+        Send "{Alt up}"
+    }
 }
 
 ; ># 为测试准备，打印字符串
@@ -174,7 +189,6 @@ return
   SendEvent("{right 5}")
 }
 
-
 ; >## 应用切换
 
 >!1:: {
@@ -196,7 +210,6 @@ return
 >!5:: {
   SendEvent("#5")
 }
-
 
 ; >## 复制 & 粘贴
 >!p:: {
@@ -220,13 +233,11 @@ return
   SendEvent("^+f")
 }
 
->!q::
->!LButton::{
+>!q::{
   SendEvent("!{left}")
 }
 
->!w::
->!RButton::{
+>!w::{
   SendEvent("!{right}")
 }
 
@@ -234,12 +245,18 @@ return
 >!WheelUp::ShiftAltTab
 >!WheelDown::AltTab
 
+
 ; >## 切换桌面
 #WheelUp::{
-  Send("^#{left}")
+  SendEvent("^#{left}")
 }
 #WheelDown::{
-  Send("^#{right}")
+  SendEvent("^#{right}")
+}
+
+; 非常有用 :)
+>!RButton::{
+  SendEvent("#{tab}")
 }
 
 >!,::{
@@ -254,6 +271,7 @@ return
   SendEvent("^{left}")
 }
 
+; >## 开闭合代码块
 >![::{
   SendEvent("^+[")
 }
@@ -297,7 +315,17 @@ return
 
 :?:noo::
 {
-  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=9a5fa6145e1c4f358969ec46bc894e09"
+  run "https://www.notion.so/bb109d5134ec46f79eb70ea781abc34e?v=ee9bf72be7de42a4882221557c57bb6a"
+}
+
+:?:too::
+{
+  run "https://www.notion.so/TODO-c90abfc080774d98943a6ab8fb806db9"
+}
+
+:?:gaa::
+{
+  run "https://www.notion.so/g-8d4e68264b54411591347b4e1fad32c6"
 }
 
 :?:auu::
@@ -324,7 +352,24 @@ return
 {
   run "https://leetcode.cn/"
 }
+ 
+; ># 快速打开
+:?:;local::
+{
+  run "http://localhost:5173/"
+}
 
+:?:;120::
+{
+  run "http://192.168.1.120:5000/"
+}
+
+:?:;cloud::
+{
+  run "https://cloud.yexsys.com/"
+}
+
+; ># PIP
 :?:;-i::-i https://pypi.tuna.tsinghua.edu.cn/simple
 
 :?:;pip::pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -484,3 +529,6 @@ return
   Run 'C:\Users\xilin\Desktop\Recoder\downloads\抖音直播'
 }
 
+:?:;ll::{
+  DllCall("LockWorkStation")
+}

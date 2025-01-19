@@ -287,6 +287,10 @@ return
   run "https://chat.openai.com/chat"
 }
 
+:?:dyy:: {
+  run "https://www.douyin.com/user/self"
+}
+
 :?:bii:: {
   run "https://www.bilibili.com/account/history?spm_id_from=333.788.0.0"
 }
@@ -445,11 +449,19 @@ return
   SendEvent("pip install -r requirements.txt")
 }
 
+
+
 ; ># 剪辑
-:?:;pd::{
-  SendEvent("#胖多金的微胖女孩 #胖多金 #记录真实生活")
+:?:;nvv::{
+  run "https://www.notion.so/v-118ba3a31e5580fe93cbefb903482f17"
 }
 
+:?:;pd::{
+  SendEvent("{#}胖胖的我{space}")
+  Sleep(500)
+  SendEvent("{#}唠嗑{space}")
+}
+ 
 ; ># 快速打开文件夹
 :?:;vv::{
   run "C:\Users\xilin\Videos\"
@@ -459,7 +471,16 @@ return
   run "C:\Users\xilin\Downloads\"
 }
 
+:?:;dy::{
+  run "C:\Users\xilin\Desktop\douyin\"
+}
+
 ;># 打开常用文件夹
 :?:;jj::{
-  Run 'C:\Users\12624\.ssh'
+  Run 'C:\Users\xilin\AppData\Local\JianyingPro\User Data\Projects\com.lveditor.draft'
 }
+
+:?:;ll::{
+  Run 'C:\Users\xilin\Desktop\Recoder\downloads\抖音直播'
+}
+

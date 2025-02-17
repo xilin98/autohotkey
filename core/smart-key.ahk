@@ -507,3 +507,7 @@ return
 :?:;ll::{
   DllCall("LockWorkStation")
 }
+
+:?:;dee::{
+  run "https://chat.deepseek.com/"
+}
